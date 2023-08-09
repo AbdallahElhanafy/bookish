@@ -1,8 +1,10 @@
 import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/assets.dart';
 import 'package:ebook_app/core/utils/styles.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -28,38 +30,44 @@ class BestSellerListViewItem extends StatelessWidget {
           SizedBox(
             width: 30.w,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .5,
-                child: Text('Harry Potter and the Goblet of Fire',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: Styles.text20.copyWith(fontFamily: kGtSectraFine)),
-              ),
-              SizedBox(
-                height: 3.h,
-              ),
-              Text(
-                "J.K. Rowling",
-                style: Styles.text14,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "19.99 \$",
-                    style: Styles.text20.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 3.h,
-                  ),
-                ],
-              )
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: Text('Harry Potter and the Goblet of Fire',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Styles.text20.copyWith(fontFamily: kGtSectraFine)),
+                ),
+                SizedBox(
+                  height: 3.h,
+                ),
+                Text(
+                  "J.K. Rowling",
+                  style: Styles.text14,
+                ),
+                SizedBox(
+                  height: 3.h,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "19.99 \$",
+                      style:
+                          Styles.text20.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const Spacer(),
+                    const BookRating()
+                  ],
+                )
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
+
