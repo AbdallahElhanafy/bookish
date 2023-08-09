@@ -1,4 +1,3 @@
-
 import 'package:ebook_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +12,6 @@ class FeaturedListViewItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15.r)),
-          color: Colors.red,
           image: const DecorationImage(
             fit: BoxFit.fitHeight,
             image: AssetImage(AssetsData.test),

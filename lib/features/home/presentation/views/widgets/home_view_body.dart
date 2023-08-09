@@ -1,5 +1,7 @@
+import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/assets.dart';
 import 'package:ebook_app/core/utils/styles.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/best_seller_list_item.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24).r,
+      padding: const EdgeInsets.symmetric(horizontal: 30).r,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -24,6 +26,9 @@ class HomeViewBody extends StatelessWidget {
             'Best Seller',
             style: Styles.text18,
           ),
+          SizedBox(
+            height: 20.h,
+          ),
           BestSellerListViewItem()
         ],
       ),
@@ -31,33 +36,3 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 126,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                color: Colors.red,
-                image: const DecorationImage(
-                  fit: BoxFit.fitHeight,
-                  image: AssetImage(AssetsData.test),
-                ),
-              ),
-            ),
-          ),
-          Column(
-            children: [],
-          )
-        ],
-      ),
-    );
-  }
-}
