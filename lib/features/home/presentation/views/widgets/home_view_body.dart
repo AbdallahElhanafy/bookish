@@ -1,6 +1,7 @@
 import 'package:ebook_app/core/utils/assets.dart';
+import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/listitem_widget.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,11 +10,22 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        CustomAppBar(),
-       CustomListViewItem(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24).r,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomAppBar(),
+          const FeaturedBooksListView(),
+          SizedBox(
+            height: 50.h,
+          ),
+          Text(
+            'Best Seller',
+            style: Styles.titleMedium,
+          )
+        ],
+      ),
     );
   }
 }
