@@ -1,11 +1,8 @@
-
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-
 
 class SplashViewbody extends StatefulWidget {
   const SplashViewbody({Key? key}) : super(key: key);
@@ -44,7 +41,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
         const SizedBox(
           height: 4,
         ),
-     //   SlidingText(slidingAnimation: slidingAnimation),
+        //   SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
   }

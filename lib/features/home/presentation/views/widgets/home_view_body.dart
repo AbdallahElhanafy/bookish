@@ -10,7 +10,6 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // عشان اعمل سكرول للشاشة كلها مش الليست بس
     return CustomScrollView(
       slivers: [
@@ -46,4 +45,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-

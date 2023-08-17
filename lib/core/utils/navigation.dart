@@ -31,7 +31,7 @@ class _NavigationState extends State<Navigation> {
 
     return Scaffold(
         body: Container(
-             padding: EdgeInsets.only(bottom: kBottomNavigationBarHeight),
+          padding: EdgeInsets.only(bottom: kBottomNavigationBarHeight),
           child: child,
         ),
         bottomNavigationBar: CustomNavigationBar(
