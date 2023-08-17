@@ -1,6 +1,5 @@
 import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/app_router.dart';
-import 'package:ebook_app/core/utils/assets.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';

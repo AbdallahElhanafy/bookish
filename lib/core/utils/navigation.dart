@@ -27,7 +27,7 @@ class _NavigationState extends State<Navigation> {
       case 1:
         break;
     }
-    double displayWidth = MediaQuery.of(context).size.width;
+   // double displayWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
         body: Container(
