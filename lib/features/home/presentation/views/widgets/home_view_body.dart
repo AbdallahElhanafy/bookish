@@ -23,7 +23,7 @@ class HomeViewBody extends StatelessWidget {
                 const CustomAppBar(),
                 const FeaturedBooksListView(),
                 SizedBox(
-                  height: 50.h,
+                  height: 40.h,
                 ),
                 Text(
                   'Newest Books',
