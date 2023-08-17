@@ -12,6 +12,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     // عشان اعمل سكرول للشاشة كلها مش الليست بس
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
@@ -25,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
                   height: 50.h,
                 ),
                 Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: Styles.text18,
                 ),
                 SizedBox(
