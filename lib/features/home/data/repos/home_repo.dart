@@ -1,4 +1,8 @@
+import 'package:dartz/dartz.dart';
+import 'package:ebook_app/core/errors/failures.dart';
+import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
+
 abstract class HomeRepo {
-  fetchBestSellerBooks();
-  fetchFeaturedBooks();
+ Future <Either<Failure,List<BookModel>>> fetchBestSellerBooks();
+ Future <Either<Failure,List<BookModel>>> fetchFeaturedBooks();
 }
