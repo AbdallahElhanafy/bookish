@@ -20,6 +20,6 @@ final class FeaturedBooksFailure extends FeaturedBooksState {
 final class FeaturedBooksSucess extends FeaturedBooksState {
   final List<BookModel> books;
 
-  FeaturedBooksSucess(this.books);
+  const FeaturedBooksSucess(this.books);
 
 }
