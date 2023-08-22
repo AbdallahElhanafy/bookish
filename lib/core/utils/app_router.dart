@@ -1,3 +1,4 @@
+import 'package:ebook_app/core/utils/navigation.dart';
 import 'package:ebook_app/core/utils/service_locator.dart';
 import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:ebook_app/features/home/data/repos/home_repo_impl.dart';
@@ -11,6 +12,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const kHomeView = '/homeView';
+  static const kNavigation = '/navView';
   static const kSearchView = '/seachView';
   static const kBookDetailsView = '/bookDetailsView';
   static final router = GoRouter(
@@ -22,6 +24,10 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kNavigation,
+        builder: (context, state) => const Navigation(),
       ),
       GoRoute(
         path: kBookDetailsView,
