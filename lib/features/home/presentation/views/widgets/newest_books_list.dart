@@ -1,13 +1,13 @@
 import 'package:ebook_app/core/widgets/custom_error_widget.dart';
 import 'package:ebook_app/core/widgets/loading_indecator.dart';
 import 'package:ebook_app/features/home/presentation/view_models/newest_books/newest_books_cubit.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/best_seller_list_item.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/newest_books_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({super.key});
+class NewestBooksListView extends StatelessWidget {
+  const NewestBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {

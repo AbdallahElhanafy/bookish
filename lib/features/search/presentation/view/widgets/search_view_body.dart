@@ -1,6 +1,6 @@
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/best_seller_list_item.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/newest_books_item.dart';
 import 'package:ebook_app/features/search/presentation/view/widgets/custom_search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
