@@ -1,9 +1,8 @@
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
-import 'package:ebook_app/core/widgets/navigation_bar.dart';
+import 'package:ebook_app/core/widgets/custom_navigation_bar.dart';
+import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
+import 'package:ebook_app/features/search/presentation/view/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -22,7 +21,7 @@ class _NavigationState extends State<Navigation> {
     });
   }
 
-  final pages = [const HomeView(), Container(), Container(), Container()];
+  final pages = [const HomeView(), Container(), SearchView(), Container()];
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +46,8 @@ class _NavigationState extends State<Navigation> {
           selectedIndex: _currentIndex,
           onTapIcon: changePage,
           selectedColor: Colors.black,
-          unSelectedColor: Colors.red,
+          unSelectedColor: Colors.orange,
         ),
-
-
       ),
     );
   }

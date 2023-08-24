@@ -22,21 +22,9 @@ class CustomNavBar extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 60.h,
-        // margin: const EdgeInsets.symmetric(
-        //   horizontal: 20,
-        //   vertical: 20,
-        // ),
-        // padding: const EdgeInsets.symmetric(
-        //   horizontal: 20,
-        //   vertical: 20,
-        // ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(25),
-          border: Border.all(
-            color: Colors.black,
-            width: 2.w,
-          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

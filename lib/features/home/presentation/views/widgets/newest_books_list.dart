@@ -1,7 +1,7 @@
 import 'package:ebook_app/core/widgets/custom_error_widget.dart';
 import 'package:ebook_app/core/widgets/loading_indecator.dart';
 import 'package:ebook_app/features/home/presentation/view_models/newest_books/newest_books_cubit.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/newest_books_item.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/Book_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
