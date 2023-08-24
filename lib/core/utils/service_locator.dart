@@ -5,7 +5,7 @@ import 'package:ebook_app/features/search/data/repos/search_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
-final String q = '';
+
 
 void setupServiceLocator() {
   getIt.registerSingleton<ApiService>(

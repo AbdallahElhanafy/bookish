@@ -14,7 +14,7 @@ class ServerFaliure extends Failure {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFaliure('Connection timeout with API server');
-      // TODO: Handle this case.
+  
       case DioExceptionType.sendTimeout:
         return ServerFaliure('Send timeout with server');
       case DioExceptionType.receiveTimeout:
@@ -23,7 +23,7 @@ class ServerFaliure extends Failure {
       case DioExceptionType.badResponse:
         return ServerFaliure.fromResponse(
             dioException.response!.statusCode!, dioException.response!.data);
-      // TODO: Handle this case.
+
       case DioExceptionType.cancel:
         return ServerFaliure('Request with API cancelled');
       case DioExceptionType.connectionError:

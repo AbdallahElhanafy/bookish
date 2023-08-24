@@ -22,7 +22,7 @@ class searchRepoImpl implements SearchRepo {
       for (var item in data['items']) {
         try {
           books.add(BookModel.fromJson(item));
-        } on Exception catch (e) {
+        } catch (e) {
           books.add(BookModel.fromJson(item));
         }
       }
