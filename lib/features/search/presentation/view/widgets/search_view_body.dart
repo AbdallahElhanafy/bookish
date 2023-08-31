@@ -9,18 +9,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchViewBody extends StatelessWidget {
- const SearchViewBody({
+  const SearchViewBody({
     super.key,
   });
 
- final  String query = '';
+  final String query = '';
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SearchCubit(getIt.get<searchRepoImpl>(), query),
       child: Padding(
-        padding: const EdgeInsets.all(30.0).r,
+        padding: const EdgeInsets.only(top: 30.0, right: 30, left: 30).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,5 +43,3 @@ class SearchViewBody extends StatelessWidget {
     );
   }
 }
-
-

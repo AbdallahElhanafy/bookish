@@ -43,6 +43,8 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   Text(
                     bookModel.volumeInfo.authors?[0] ?? '',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: Styles.text14,
                   ),
                   SizedBox(

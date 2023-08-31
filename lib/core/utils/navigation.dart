@@ -1,3 +1,4 @@
+import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/widgets/custom_navigation_bar.dart';
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
 import 'package:ebook_app/features/search/presentation/view/search_view.dart';
@@ -20,23 +21,21 @@ class _NavigationState extends State<Navigation> {
     });
   }
 
-  final pages = [const HomeView(), Container(), const SearchView(), Container()];
+  final pages = [
+    const HomeView(),
+    Container(),
+    const SearchView(),
+    Container()
+  ];
 
   @override
   Widget build(BuildContext context) {
-  
-
-
     return navigationBody();
   }
 
-
-
-  Padding navigationBody() {
-    return Padding(
-    padding: const EdgeInsets.only(bottom: 30).r,
-    child: Scaffold(
-      extendBody: true,
+  Widget navigationBody() {
+    return Scaffold(
+      // extendBody: true,
       body: pages[_currentIndex],
       bottomNavigationBar: CustomNavBar(
         icons: const [
@@ -48,9 +47,8 @@ class _NavigationState extends State<Navigation> {
         selectedIndex: _currentIndex,
         onTapIcon: changePage,
         selectedColor: Colors.black,
-        unSelectedColor: Colors.orange,
+        unSelectedColor: kSecondaryColor,
       ),
-    ),
-  );
+    );
   }
 }

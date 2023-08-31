@@ -1,5 +1,6 @@
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/assets.dart';
+import 'package:ebook_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,16 +20,13 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Image.asset(
             AssetsData.logo,
-            height: 18.h,
+            height: 50.h,
           ),
           const Spacer(),
-          IconButton(
-            onPressed: () {
-              GoRouter.of(context).push(AppRouter.kSearchView);
-            },
-            icon: Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              size: 24.r,
+          Text(
+            "BookBound",
+            style: Styles.text20.copyWith(
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

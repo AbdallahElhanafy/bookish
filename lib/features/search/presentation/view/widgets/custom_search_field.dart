@@ -1,4 +1,3 @@
-
 import 'package:ebook_app/features/search/presentation/view_models/cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +11,11 @@ class CustomSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: (query) {
+        BlocProvider.of<SearchCubit>(context).searchBooks(
+          query: searchController.text,
+        );
+      },
       controller: searchController,
       decoration: InputDecoration(
         enabledBorder: buildOutlineInputBorder(),
@@ -26,10 +30,9 @@ class CustomSearchField extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            
             // implement a search for books in google books api
             BlocProvider.of<SearchCubit>(context).searchBooks(
-              query:searchController.text,
+              query: searchController.text,
             );
           },
         ),
@@ -40,6 +43,6 @@ class CustomSearchField extends StatelessWidget {
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(12).r,
-        borderSide: const BorderSide(color: Colors.white));
+        borderSide: const BorderSide(color: Colors.black));
   }
 }

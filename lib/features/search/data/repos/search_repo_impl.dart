@@ -14,7 +14,7 @@ class searchRepoImpl implements SearchRepo {
   Future<Either<Failure, List<BookModel>>> searchBooks({required String query}) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=$query'
+        endPoint: 'volumes?q=intitle:$query&filter=ebooks&download=epub&langRestrict=en'
       );
        
       List<BookModel> books = [];

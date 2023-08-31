@@ -39,10 +39,10 @@ class BooksApp extends StatelessWidget {
           child: MaterialApp.router(
             routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData.dark().copyWith(
+            theme: ThemeData.light().copyWith(
               scaffoldBackgroundColor: kPrimaryColor,
               textTheme:
-                  GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+                  GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
             ),
           ),
         );

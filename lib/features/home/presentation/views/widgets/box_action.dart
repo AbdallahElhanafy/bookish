@@ -4,7 +4,6 @@ import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class BooksAction extends StatelessWidget {
   const BooksAction({super.key, required this.bookModel});
 
@@ -18,8 +17,8 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               text: 'Free',
-              textColor: Colors.black,
-              backgroundColor: Colors.white,
+              textColor: Colors.white,
+              backgroundColor: Colors.black,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(12.r),
                   bottomLeft: Radius.circular(12.r)),
@@ -28,7 +27,9 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               onPressed: () async {
-                launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+               // launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+              // launchCustomUrl(context, bookModel.accessInfo!.epub!.downloadLink ?? '');
+              launchCustomUrl(context, bookModel.accessInfo!.webReaderLink);
               },
               text: getText(bookModel),
               textColor: Colors.white,

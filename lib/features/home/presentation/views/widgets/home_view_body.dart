@@ -42,11 +42,6 @@ class HomeViewBody extends StatelessWidget {
             child: const NewestBooksListView(),
           ),
         ),
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 60.h,
-          ),
-        ),
       ],
     );
   }

@@ -17,33 +17,28 @@ class CustomNavBar extends StatelessWidget {
   final Color unSelectedColor;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15.0, left: 15, right: 15).r,
-      child: Container(
-        width: double.infinity,
-        height: 60.h,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(
-            icons.length,
-            (index) => Expanded(
-              child: IconButton(
-                onPressed: () {
-                  if (selectedIndex != index) {
-                    onTapIcon(index);
-                  }
-                },
-                padding: const EdgeInsets.all(0),
-                iconSize: 25.r,
-                icon: Icon(
-                  icons[index],
-                  color:
-                      index == selectedIndex ? selectedColor : unSelectedColor,
-                ),
+    return Container(
+      width: double.infinity,
+      height: 60.h,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: List.generate(
+          icons.length,
+          (index) => Expanded(
+            child: IconButton(
+              onPressed: () {
+                if (selectedIndex != index) {
+                  onTapIcon(index);
+                }
+              },
+              padding: const EdgeInsets.all(0),
+              iconSize: 25.r,
+              icon: Icon(
+                icons[index],
+                color: index == selectedIndex ? selectedColor : unSelectedColor,
               ),
             ),
           ),
