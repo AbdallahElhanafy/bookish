@@ -1,3 +1,4 @@
+import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,13 +12,9 @@ class CustomAppBarBookDetails extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {
-            GoRouter.of(context).pop();
+            GoRouter.of(context).go(AppRouter.kNavigation);
           },
           icon: const Icon(Icons.close),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.shopping_cart_outlined),
         ),
       ],
     );
