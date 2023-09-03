@@ -1,19 +1,23 @@
 import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/styles.dart';
-import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ebook_app/core/utils/functions/BookPrice.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.bookModel});
   final NewBookModel bookModel;
   
+ 
   @override
+
+
+
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -55,9 +59,9 @@ class BookListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "Free",
+                        bookPrice(bookModel),
                         style:
-                            Styles.text20.copyWith(fontWeight: FontWeight.bold),
+                            Styles.text16.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
                       BookRating(

@@ -1,4 +1,3 @@
-import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/books_details_section.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/custom_book_details_appbar.dart';

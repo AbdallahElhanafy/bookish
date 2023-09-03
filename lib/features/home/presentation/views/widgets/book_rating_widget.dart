@@ -36,7 +36,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            '$count',
+            '($count)',
             style: Styles.text14.copyWith(),
           ),
         )

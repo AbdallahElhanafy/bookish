@@ -1,5 +1,4 @@
 import 'package:ebook_app/core/utils/styles.dart';
-import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/box_action.dart';
