@@ -2,6 +2,7 @@ import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewbody extends StatefulWidget {
@@ -37,7 +38,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(AssetsData.logo),
+        SizedBox(height: 300.h, child: Image.asset(AssetsData.logo)),
         const SizedBox(
           height: 4,
         ),
