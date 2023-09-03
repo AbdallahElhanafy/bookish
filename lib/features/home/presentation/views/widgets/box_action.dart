@@ -1,13 +1,14 @@
 import 'package:ebook_app/core/utils/functions/launch_url.dart';
 import 'package:ebook_app/core/widgets/custom_button.dart';
 import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
+import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BooksAction extends StatelessWidget {
   const BooksAction({super.key, required this.bookModel});
 
-  final BookModel bookModel;
+  final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,7 +45,7 @@ class BooksAction extends StatelessWidget {
     );
   }
 
-  String getText(BookModel bookModel) {
+  String getText(NewBookModel bookModel) {
     if (bookModel.volumeInfo.previewLink == null) {
       return 'Not Available';
     } else {

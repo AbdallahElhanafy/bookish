@@ -3,7 +3,6 @@ import 'package:ebook_app/core/widgets/custom_navigation_bar.dart';
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
 import 'package:ebook_app/features/search/presentation/view/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Navigation extends StatefulWidget {

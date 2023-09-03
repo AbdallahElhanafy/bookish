@@ -71,7 +71,7 @@ class VolumeInfo extends Equatable {
                 ? null
                 : json['categories'] as List<dynamic>?)
             ?.cast<String>(),
-        averageRating: json['averageRating'],
+        averageRating: json['averageRating'] ,
         ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,

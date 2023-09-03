@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
+import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/search/data/repos/search_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -15,7 +16,6 @@ class SearchCubit extends Cubit<SearchState> {
   Future<void> searchBooks({required String query}) async {
     emit(SearchLoading());
     var result = await searchRepo.searchBooks(query: query);
-   
 
     result.fold(
       (faliure) {

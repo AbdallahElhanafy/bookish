@@ -8,16 +8,17 @@ sealed class SearchState extends Equatable {
 }
 
 final class SearchInitial extends SearchState {}
-final class SearchLoading extends SearchState {}
-final class SearchSucess extends SearchState {
 
-    final List<BookModel> books;
+final class SearchLoading extends SearchState {}
+
+final class SearchSucess extends SearchState {
+  final List<NewBookModel> books;
 
   const SearchSucess(this.books);
 }
+
 final class SearchFailure extends SearchState {
+  final String errMessage;
 
-   final String errMessage;
-
- const SearchFailure(this.errMessage);
+  const SearchFailure(this.errMessage);
 }

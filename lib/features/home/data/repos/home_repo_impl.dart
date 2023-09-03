@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:ebook_app/core/errors/failures.dart';
 import 'package:ebook_app/core/utils/api_service.dart';
 import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
+import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
@@ -10,18 +11,18 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl(this.apiService);
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<NewBookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=filter=ebooks&orderBy=newest&langRestrict=en&download=epub');
+          endPoint: 'volumes?q=subject:fiction&orderBy=newest&langRestrict=en&download=epub&');
 
-      List<BookModel> books = [];
+      List<NewBookModel> books = [];
 
       for (var item in data['items']) {
         try {
-          books.add(BookModel.fromJson(item));
+          books.add(NewBookModel.fromJson(item));
         } catch (e) {
-          books.add(BookModel.fromJson(item));
+          books.add(NewBookModel.fromJson(item));
         }
       }
 
@@ -41,15 +42,15 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<NewBookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=filter=ebooks&langRestrict=en&download=epub');
+          endPoint: 'volumes?q=subject:fiction&langRestrict=en&download=epub');
 
-      List<BookModel> books = [];
+      List<NewBookModel> books = [];
 
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        books.add(NewBookModel.fromJson(item));
       }
 
       return right(books);
@@ -68,17 +69,17 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+  Future<Either<Failure, List<NewBookModel>>> fetchSimilarBooks(
       {required String category}) async {
     try {
       var data = await apiService.get(
           endPoint:
-              'volumes?q=subject:$category&filter=ebooks&orderBy=relevance&langRestrict=en&download=epub');
+              'volumes?q=subject:$category&orderBy=relevance&langRestrict=en&download=epub');
 
-      List<BookModel> books = [];
+      List<NewBookModel> books = [];
 
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        books.add(NewBookModel.fromJson(item));
       }
 
       return right(books);

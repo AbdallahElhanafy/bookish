@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:ebook_app/core/errors/failures.dart';
-import 'package:ebook_app/features/home/data/models/book_model/book_model.dart';
+import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks();
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
-  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+  Future<Either<Failure, List<NewBookModel>>> fetchNewestBooks();
+  Future<Either<Failure, List<NewBookModel>>> fetchFeaturedBooks();
+  Future<Either<Failure, List<NewBookModel>>> fetchSimilarBooks(
       {required String category});
 }

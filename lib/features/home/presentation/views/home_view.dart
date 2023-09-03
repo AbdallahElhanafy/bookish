@@ -10,7 +10,6 @@ class HomeView extends StatelessWidget {
       top: true,
       bottom: false,
       child: HomeViewBody(),
-      );
-    
+    );
   }
 }
