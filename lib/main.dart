@@ -42,7 +42,7 @@ class BooksApp extends StatelessWidget {
             theme: ThemeData.light().copyWith(
               scaffoldBackgroundColor: kPrimaryColor,
               textTheme:
-                  GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+                  GoogleFonts.jostTextTheme(ThemeData.light().textTheme),
             ),
           ),
         );

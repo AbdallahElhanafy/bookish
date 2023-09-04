@@ -21,16 +21,24 @@ class HomeViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CustomAppBar(),
-                const FeaturedBooksListView(),
-                SizedBox(
-                  height: 40.h,
+                const Divider(
+                  color: Colors.grey,
+                  thickness: 2,
                 ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                const FeaturedBooksListView(),
                 Text(
                   'Newest Books',
                   style: Styles.text18,
                 ),
+                const Divider(
+                  color: Colors.grey,
+                  thickness: 2,
+                ),
                 SizedBox(
-                  height: 20.h,
+                  height: 10.h,
                 ),
               ],
             ),

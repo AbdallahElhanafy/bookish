@@ -14,19 +14,21 @@ class NewestBooksListView extends StatelessWidget {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         if (state is NewestBooksSucess) {
-          return ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.zero,
-            itemCount: state.books.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0).r,
-                child: BookListViewItem(
-                  bookModel: state.books[index],
-                ),
-              );
-            },
+          return SizedBox(
+            height: 300.h,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.zero,
+              itemCount: state.books.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
+                  child: BookListViewItem(
+                    bookModel: state.books[index],
+                  ),
+                );
+              },
+            ),
           );
         } else if (state is NewestBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);

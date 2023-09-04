@@ -17,7 +17,7 @@ class FeaturedBooksListView extends StatelessWidget {
       builder: (context, state) {
         if (state is FeaturedBooksSucess) {
           return SizedBox(
-            height: 170.h,
+            height: 240.h,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               itemCount: state.books.length,
@@ -32,6 +32,10 @@ class FeaturedBooksListView extends StatelessWidget {
                           extra: state.books[index]);
                     },
                     child: CustomBookImage(
+                      aspectRatioHeight: 170.h,
+                      bookAuthor:
+                          state.books[index].volumeInfo.authors?[0] ?? '',
+                      bookTitle: state.books[index].volumeInfo.title ?? '',
                       imageUrl:
                           state.books[index].volumeInfo.imageLinks?.thumbnail ??
                               '',

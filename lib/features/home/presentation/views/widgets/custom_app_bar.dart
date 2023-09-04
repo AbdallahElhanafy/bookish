@@ -1,4 +1,3 @@
-
 import 'package:ebook_app/core/utils/assets.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -12,20 +11,12 @@ class CustomAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 20,
-        bottom: 20,
       ).r,
       child: Row(
         children: [
-          Image.asset(
-            AssetsData.logo,
-            height: 50.h,
-          ),
-          const Spacer(),
           Text(
-            "BookBound",
-            style: Styles.text20.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
+            'Discover',
+            style: Styles.text18.copyWith(fontWeight: FontWeight.bold),
           ),
         ],
       ),

@@ -12,67 +12,25 @@ import 'package:ebook_app/core/utils/functions/BookPrice.dart';
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.bookModel});
   final NewBookModel bookModel;
-  
- 
+
   @override
-
-
-
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
-        height: 126.h,
-        child: Row(
+        height: 210.h,
+        child: Stack(
           children: [
             CustomBookImage(
+                aspectRatioHeight: 190.h,
+                bookAuthor: bookModel.volumeInfo.authors?[0] ?? '',
+                bookTitle: bookModel.volumeInfo.title ?? '',
                 imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
-            SizedBox(
-              width: 30.w,
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
-                    child: Text(bookModel.volumeInfo.title!,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style:
-                            Styles.text20.copyWith(fontFamily: kGtSectraFine)),
-                  ),
-                  SizedBox(
-                    height: 3.h,
-                  ),
-                  Text(
-                    bookModel.volumeInfo.authors?[0] ?? '',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: Styles.text14,
-                  ),
-                  SizedBox(
-                    height: 3.h,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        bookPrice(bookModel),
-                        style:
-                            Styles.text16.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      const Spacer(),
-                      BookRating(
-                        count: bookModel.volumeInfo.ratingsCount ?? 0,
-                        rating: bookModel.volumeInfo.averageRating ?? 0,
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
+            BookRating(
+                rating: bookModel.volumeInfo.averageRating ?? 0,
+                count: bookModel.volumeInfo.ratingsCount ?? 0),
           ],
         ),
       ),

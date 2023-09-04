@@ -1,7 +1,7 @@
-import 'package:ebook_app/core/utils/functions/Categories.dart';
 import 'package:ebook_app/core/widgets/loading_indecator.dart';
 import 'package:ebook_app/features/categories/presentation/view/widgets/CategoriesGridView.dart';
 import 'package:ebook_app/features/categories/presentation/view_models/category_cubit/categories_cubit.dart';
+import 'package:ebook_app/features/categories/presentation/view_models/category_tools/categories.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/Book_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

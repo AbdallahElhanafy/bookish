@@ -17,6 +17,9 @@ class BookDetailsSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 76.0).r,
           child: CustomBookImage(
+            aspectRatioHeight: 170.h,
+            bookAuthor: bookModel.volumeInfo.authors?[0] ?? '',
+            bookTitle: bookModel.volumeInfo.title ?? '',
             imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),

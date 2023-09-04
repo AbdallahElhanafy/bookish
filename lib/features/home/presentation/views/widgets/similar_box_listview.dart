@@ -31,6 +31,10 @@ class SimilarBoxListView extends StatelessWidget {
                           extra: state.books[index]);
                     },
                     child: CustomBookImage(
+                      aspectRatioHeight: 110.h,
+                      bookAuthor:
+                          state.books[index].volumeInfo.authors?[0] ?? '',
+                      bookTitle: state.books[index].volumeInfo.title ?? '',
                       imageUrl:
                           state.books[index].volumeInfo.imageLinks?.thumbnail ??
                               '',
