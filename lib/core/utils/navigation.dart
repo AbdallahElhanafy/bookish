@@ -1,5 +1,6 @@
 import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/widgets/custom_navigation_bar.dart';
+import 'package:ebook_app/features/categories/presentation/view/categories_view.dart';
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
 import 'package:ebook_app/features/search/presentation/view/search_view.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _NavigationState extends State<Navigation> {
 
   final pages = [
     const HomeView(),
-    Container(),
+    CategoriesView(),
     const SearchView(),
     Container()
   ];
