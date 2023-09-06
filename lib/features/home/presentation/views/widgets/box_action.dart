@@ -1,3 +1,4 @@
+import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/functions/BookPrice.dart';
 import 'package:ebook_app/core/utils/functions/launch_url.dart';
 import 'package:ebook_app/core/widgets/custom_button.dart';
@@ -11,37 +12,22 @@ class BooksAction extends StatelessWidget {
   final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0).r,
-      child: Row(
-        children: [
-          Expanded(
-            child: CustomButton(
-              text: bookPrice(bookModel),
-              textColor: Colors.white,
-              backgroundColor: Colors.black,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12.r),
-                  bottomLeft: Radius.circular(12.r)),
-            ),
+    return Row(
+      children: [
+        Expanded(
+          child: CustomButton(
+            onPressed: () async {
+              // launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+              // launchCustomUrl(context, bookModel.accessInfo!.epub!.downloadLink ?? '');
+              launchCustomUrl(context, bookModel.accessInfo!.webReaderLink);
+            },
+            text: getText(bookModel),
+            textColor: Colors.white,
+            backgroundColor: kSecondaryColor,
+            borderRadius: const BorderRadius.all(Radius.circular(10)).r,
           ),
-          Expanded(
-            child: CustomButton(
-              onPressed: () async {
-                // launchCustomUrl(context, bookModel.volumeInfo.previewLink);
-                // launchCustomUrl(context, bookModel.accessInfo!.epub!.downloadLink ?? '');
-                launchCustomUrl(context, bookModel.accessInfo!.webReaderLink);
-              },
-              text: getText(bookModel),
-              textColor: Colors.white,
-              backgroundColor: Colors.orange,
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(12.r),
-                  bottomRight: Radius.circular(12.r)),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

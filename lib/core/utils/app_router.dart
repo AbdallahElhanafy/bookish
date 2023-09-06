@@ -7,6 +7,7 @@ import 'package:ebook_app/features/home/presentation/views/book_details_view.dar
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
 import 'package:ebook_app/features/search/presentation/view/search_view.dart';
 import 'package:ebook_app/features/splash/presentation/views/splash_view.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,8 +34,8 @@ abstract class AppRouter {
         path: kBookDetailsView,
         builder: (context, state) => BlocProvider(
           create: (context) => SimilarBooksCubit(
-            getIt.get<HomeRepoImpl>(),
-          ),
+            getIt.get<HomeRepoImpl>()
+         ),
           child: BookDetailsView(
             bookModel: state.extra as NewBookModel,
           ),

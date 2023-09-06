@@ -22,6 +22,7 @@ dependencies:
   google_fonts: ^5.1.0
   intl: ^0.18.1
   page_transition: ^2.0.9
+  palette_generator: ^0.3.3+3
   url_launcher: ^6.1.12
 
 dev_dependencies:

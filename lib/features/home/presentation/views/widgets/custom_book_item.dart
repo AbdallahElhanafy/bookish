@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ebook_app/core/utils/styles.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/bookImg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,20 +22,7 @@ class CustomBookImage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: aspectRatioHeight,
-            child: AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: CachedNetworkImage(
-                fit: BoxFit.fill,
-                imageUrl: imageUrl,
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
-                errorWidget: (context, url, error) =>
-                    const Icon(Icons.question_mark),
-              ),
-            ),
-          ),
+          BookImg(aspectRatioHeight: aspectRatioHeight, imageUrl: imageUrl),
           const SizedBox(height: 8),
           SizedBox(
             width: 140,
@@ -53,3 +41,4 @@ class CustomBookImage extends StatelessWidget {
     );
   }
 }
+

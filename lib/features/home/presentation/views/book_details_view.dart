@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_details_view_body.dart';
@@ -15,10 +16,17 @@ class BookDetailsView extends StatefulWidget {
 
 class _BookDetailsViewState extends State<BookDetailsView> {
   @override
-  void initState() {
+  initState() {
     super.initState();
     BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(
         category: widget.bookModel.volumeInfo.categories?[0] ?? '');
+
+    BlocProvider.of<SimilarBooksCubit>(context).getImagePalette(
+       CachedNetworkImageProvider( widget.bookModel.volumeInfo.imageLinks!.thumbnail) );
+
+       print(BlocProvider.of<SimilarBooksCubit>(context).backColor);
+
+
   }
 
   @override
