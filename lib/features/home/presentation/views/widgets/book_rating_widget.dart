@@ -32,7 +32,7 @@ class BookRating extends StatelessWidget {
                   rating.toString(),
                   style: Styles.text13.copyWith(color: Colors.white),
                 ),
-                Icon(
+               const Icon(
                   FontAwesomeIcons.star,
                   size: 10,
                   color: Colors.white,

@@ -20,7 +20,7 @@ class CategoriesViewBody extends StatelessWidget {
           return CategoriesGridView(
               categoriesConstructor: _categoriesConstructor);
         } else if (state is CategoriesLoading) {
-          return CustomLoadingIndecator();
+          return const CustomLoadingIndecator();
         } else if (state is CategoriesFailure) {
           return Center(
             child: Text(state.errMessage),

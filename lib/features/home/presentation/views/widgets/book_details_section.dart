@@ -1,4 +1,3 @@
-import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/functions/BookPrice.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';

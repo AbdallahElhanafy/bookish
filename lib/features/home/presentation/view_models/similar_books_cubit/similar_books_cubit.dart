@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
@@ -20,7 +19,7 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
         await PaletteGenerator.fromImageProvider(imageProvider);
 
     backColor = paletteGenerator.dominantColor?.color ?? Colors.white;
-    emit(SimilarBooksSucess([]));
+    emit(const SimilarBooksSucess([]));
     return backColor;
   }
 

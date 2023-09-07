@@ -1,13 +1,10 @@
-import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/app_router.dart';
-import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ebook_app/core/utils/functions/BookPrice.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.bookModel});

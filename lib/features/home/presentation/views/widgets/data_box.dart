@@ -1,4 +1,3 @@
-import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +24,7 @@ class DataBox extends StatelessWidget {
               fit: BoxFit.fitWidth,
               child: Text(
                 data,
-                style: TextStyle(
+                style:const  TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),

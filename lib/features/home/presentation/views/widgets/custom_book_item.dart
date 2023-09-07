@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/bookImg.dart';
 import 'package:flutter/material.dart';

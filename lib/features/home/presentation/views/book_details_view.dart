@@ -25,7 +25,6 @@ class _BookDetailsViewState extends State<BookDetailsView> {
         CachedNetworkImageProvider(
             widget.bookModel.volumeInfo.imageLinks!.thumbnail));
 
-    print(BlocProvider.of<SimilarBooksCubit>(context).backColor);
   }
 
   @override
