@@ -2,6 +2,7 @@ import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/widgets/custom_navigation_bar.dart';
 import 'package:ebook_app/features/categories/presentation/view/categories_view.dart';
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
+import 'package:ebook_app/features/library/presentation/view/library_view.dart';
 import 'package:ebook_app/features/search/presentation/view/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,7 +26,7 @@ class _NavigationState extends State<Navigation> {
     const HomeView(),
    const CategoriesView(),
     const SearchView(),
-    Container()
+   const LibraryView(),
   ];
 
   @override

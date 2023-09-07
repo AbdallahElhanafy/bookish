@@ -21,17 +21,23 @@ class searchRepoImpl implements SearchRepo {
 
       for (var item in data['items']) {
         try {
-          books.add(NewBookModel.fromJson(item));
+          books.add(NewBookModel.fromJson(item),);
         } catch (e) {
-          books.add(NewBookModel.fromJson(item));
+          books.add(NewBookModel.fromJson(item),);
         }
       }
       return Right(books);
     } on DioException catch (e) {
-      return Left(ServerFaliure(
-          e.response?.data!['error']['message'] ?? 'Unknown error occurred'));
+      return Left(
+        ServerFaliure(
+            e.response?.data!['error']['message'] ?? 'Unknown error occurred'),
+      );
     } catch (e) {
-      return Left(ServerFaliure(e.toString()));
+      return Left(
+        ServerFaliure(
+          e.toString(),
+        ),
+      );
     }
   }
 }
