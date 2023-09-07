@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "807121564153",
+    "project_id": "bookish-278b8",
+    "storage_bucket": "bookish-278b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807121564153:android:f86b7c9ee989cd8c768d28",
+        "android_client_info": {
+          "package_name": "com.example.ebook_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807121564153-mhp6gt7ttb7u688nq8oq7fe1drc79a5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn9anlEFx4FQSJb4dd_zBvGgByev6LdcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807121564153-mhp6gt7ttb7u688nq8oq7fe1drc79a5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,25 +1,29 @@
 import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/service_locator.dart';
+import 'package:ebook_app/features/authentication/presentation/view_models/authentication_cubit/authentication_cubit.dart';
 import 'package:ebook_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:ebook_app/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:ebook_app/features/home/presentation/view_models/newest_books/newest_books_cubit.dart';
+import 'package:ebook_app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+Future <void> main()  async{
   setupServiceLocator();
   runApp(const BooksApp());
+   await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class BooksApp extends StatelessWidget {
   const BooksApp({super.key});
 
-  final String id='';
-
-
+  final String id = '';
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,9 @@ class BooksApp extends StatelessWidget {
                 getIt.get<HomeRepoImpl>(),
               )..fetchNewestBooks(),
             ),
-            
+            BlocProvider(
+              create: (context) => AuthenticationCubit(),
+            ),
           ],
           child: MaterialApp.router(
             routerConfig: AppRouter.router,

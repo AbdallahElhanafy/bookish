@@ -25,6 +25,21 @@ class BooksAction extends StatelessWidget {
             backgroundColor: kSecondaryColor,
             borderRadius: const BorderRadius.all(Radius.circular(10)).r,
           ),
+          
+        ),
+        Expanded(
+          child: CustomButton(
+            onPressed: () async {
+              // launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+              // launchCustomUrl(context, bookModel.accessInfo!.epub!.downloadLink ?? '');
+              launchCustomUrl(context, bookModel.accessInfo!.webReaderLink);
+            },
+            text: getText(bookModel),
+            textColor: Colors.white,
+            backgroundColor: kSecondaryColor,
+            borderRadius: const BorderRadius.all(Radius.circular(10)).r,
+          ),
+          
         ),
       ],
     );
