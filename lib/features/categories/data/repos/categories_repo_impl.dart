@@ -5,19 +5,18 @@ import 'package:ebook_app/core/utils/api_service.dart';
 import 'package:ebook_app/features/categories/data/repos/categories_repo.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 
-class categoriesRepoImpl implements CategoriesRepo{
-   final ApiService apiService;
+class categoriesRepoImpl implements CategoriesRepo {
+  final ApiService apiService;
 
   categoriesRepoImpl(this.apiService);
 
-   @override
+  @override
   Future<Either<Failure, List<NewBookModel>>> getCategory(
       {required String category}) async {
-
-
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=subject:$category&download=epub&langRestrict=en');
+          endPoint:
+              'volumes?q=subject:$category&download=epub&langRestrict=en');
 
       List<NewBookModel> books = [];
 

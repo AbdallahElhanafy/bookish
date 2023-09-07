@@ -12,22 +12,17 @@ part 'similar_books_state.dart';
 class SimilarBooksCubit extends Cubit<SimilarBooksState> {
   SimilarBooksCubit(this.homeRepo) : super(SimilarBooksInitial());
 
+  Color backColor = Colors.white;
 
-
- Color backColor = Colors.white;
-
-
-  Future<Color> getImagePalette (ImageProvider imageProvider) async {
+  Future<Color> getImagePalette(ImageProvider imageProvider) async {
     emit(SimilarBooksLoading());
-  final PaletteGenerator paletteGenerator = await PaletteGenerator
-      .fromImageProvider(imageProvider);
+    final PaletteGenerator paletteGenerator =
+        await PaletteGenerator.fromImageProvider(imageProvider);
 
-backColor = paletteGenerator.dominantColor?.color?? Colors.white;
- emit(SimilarBooksSucess([]));
-  return backColor;
-  
-}
-
+    backColor = paletteGenerator.dominantColor?.color ?? Colors.white;
+    emit(SimilarBooksSucess([]));
+    return backColor;
+  }
 
   final HomeRepo homeRepo;
   Future<void> fetchSimilarBooks({required String category}) async {

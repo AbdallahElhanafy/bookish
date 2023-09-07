@@ -16,20 +16,16 @@ class CategoriesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
-        
         if (state is CategoriesInitial) {
-          return CategoriesGridView(categoriesConstructor: _categoriesConstructor);
+          return CategoriesGridView(
+              categoriesConstructor: _categoriesConstructor);
         } else if (state is CategoriesLoading) {
           return CustomLoadingIndecator();
-        }
-
-        else if (state is CategoriesFailure) {
+        } else if (state is CategoriesFailure) {
           return Center(
             child: Text(state.errMessage),
           );
-        }
-
-        else if (state is CategoriesSuccess){
+        } else if (state is CategoriesSuccess) {
           return ListView.builder(
             padding: EdgeInsets.zero,
             itemCount: state.books.length,
@@ -42,9 +38,7 @@ class CategoriesViewBody extends StatelessWidget {
               );
             },
           );
-        }
-
-        else {
+        } else {
           return const Center(
             child: CircularProgressIndicator(),
           );
@@ -53,7 +47,3 @@ class CategoriesViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

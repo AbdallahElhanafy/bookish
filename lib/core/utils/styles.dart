@@ -14,15 +14,15 @@ abstract class Styles {
   );
 
   static final text30 = TextStyle(
-      fontSize: 30.sp,
-      fontWeight: FontWeight.normal,
-      );
+    fontSize: 30.sp,
+    fontWeight: FontWeight.normal,
+  );
   static final text14 = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
   );
 
-   static final text13 = TextStyle(
+  static final text13 = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeight.normal,
   );

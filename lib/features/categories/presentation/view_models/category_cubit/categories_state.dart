@@ -12,11 +12,10 @@ final class CategoriesInitial extends CategoriesState {}
 final class CategoriesLoading extends CategoriesState {}
 
 final class CategoriesSuccess extends CategoriesState {
-   final List<NewBookModel> books;
+  final List<NewBookModel> books;
 
   const CategoriesSuccess(this.books);
 }
-
 
 final class CategoriesFailure extends CategoriesState {
   final String errMessage;

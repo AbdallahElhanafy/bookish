@@ -1,10 +1,9 @@
-
 class CategoriesModel {
-final  String imageAsset;
-final  String category;
+  final String imageAsset;
+  final String category;
 
- CategoriesModel({required this.imageAsset, required this.category, });
-
+  CategoriesModel({
+    required this.imageAsset,
+    required this.category,
+  });
 }
-
-

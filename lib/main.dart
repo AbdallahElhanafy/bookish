@@ -17,6 +17,10 @@ void main() {
 class BooksApp extends StatelessWidget {
   const BooksApp({super.key});
 
+  final String id='';
+
+
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -35,14 +39,14 @@ class BooksApp extends StatelessWidget {
                 getIt.get<HomeRepoImpl>(),
               )..fetchNewestBooks(),
             ),
+            
           ],
           child: MaterialApp.router(
             routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
             theme: ThemeData.light().copyWith(
               scaffoldBackgroundColor: kPrimaryColor,
-              textTheme:
-                  GoogleFonts.jostTextTheme(ThemeData.light().textTheme),
+              textTheme: GoogleFonts.jostTextTheme(ThemeData.light().textTheme),
             ),
           ),
         );

@@ -22,11 +22,10 @@ class _BookDetailsViewState extends State<BookDetailsView> {
         category: widget.bookModel.volumeInfo.categories?[0] ?? '');
 
     BlocProvider.of<SimilarBooksCubit>(context).getImagePalette(
-       CachedNetworkImageProvider( widget.bookModel.volumeInfo.imageLinks!.thumbnail) );
+        CachedNetworkImageProvider(
+            widget.bookModel.volumeInfo.imageLinks!.thumbnail));
 
-       print(BlocProvider.of<SimilarBooksCubit>(context).backColor);
-
-
+    print(BlocProvider.of<SimilarBooksCubit>(context).backColor);
   }
 
   @override

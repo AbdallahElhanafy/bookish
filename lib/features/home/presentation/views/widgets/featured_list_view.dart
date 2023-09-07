@@ -11,6 +11,7 @@ import 'package:go_router/go_router.dart';
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
@@ -37,8 +38,8 @@ class FeaturedBooksListView extends StatelessWidget {
                           state.books[index].volumeInfo.authors?[0] ?? '',
                       bookTitle: state.books[index].volumeInfo.title ?? '',
                       imageUrl:
-                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                              '',
+
+                      state.books[index].volumeInfo.imageLinks?.thumbnail.replaceAll('zoom=1', 'zoom=10') ?? ''
                     ),
                   ),
                 );

@@ -15,6 +15,8 @@ class CustomBookImage extends StatelessWidget {
   final String bookTitle;
   final String bookAuthor;
   final double aspectRatioHeight;
+
+  
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -41,4 +43,3 @@ class CustomBookImage extends StatelessWidget {
     );
   }
 }
-

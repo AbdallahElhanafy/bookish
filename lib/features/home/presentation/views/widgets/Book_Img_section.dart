@@ -15,12 +15,13 @@ class BookImgSection extends StatelessWidget {
       children: [
         BookImg(
           aspectRatioHeight: 300.h,
-          imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+          imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail
+                  .replaceAll('zoom=1', 'zoom=10') ??
+              '',
         ),
         const SizedBox(
           height: 43,
         ),
-       
       ],
     );
   }
