@@ -47,7 +47,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       } else if (ex.code == 'email-already-in-use') {
         emit(registerFailure(errMessage: 'Email already in use'));
       }
-    } on Exception catch (e) {
+    }  catch (e) {
       emit(registerFailure(errMessage: "Something went wrong"));
     }
 

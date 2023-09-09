@@ -1,4 +1,4 @@
-import 'package:ebook_app/features/categories/presentation/view_models/category_cubit/categories_cubit.dart';
+import 'package:ebook_app/features/search/presentation/view_models/cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +17,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<CategoriesCubit>(context)
+        BlocProvider.of<SearchCubit>(context)
             .getCategory(category: category);
       },
       child: Padding(

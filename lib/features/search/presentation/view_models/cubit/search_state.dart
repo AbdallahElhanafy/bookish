@@ -17,6 +17,12 @@ final class SearchSucess extends SearchState {
   const SearchSucess(this.books);
 }
 
+final class SearchCategorySucess extends SearchState{
+   final List<NewBookModel> books;
+
+  const SearchCategorySucess(this.books);
+}
+
 final class SearchFailure extends SearchState {
   final String errMessage;
 

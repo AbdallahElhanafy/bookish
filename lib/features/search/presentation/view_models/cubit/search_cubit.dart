@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit(this.searchRepo, this.query) : super(SearchInitial());
+  SearchCubit(this.searchRepo, this.query, this.category) : super(SearchInitial());
 
   final SearchRepo searchRepo;
 
@@ -25,6 +25,26 @@ class SearchCubit extends Cubit<SearchState> {
       (books) {
         emit(
           SearchSucess(books),
+        );
+      },
+    );
+  }
+
+  String category;
+
+  Future<void> getCategory({required String category}) async {
+    emit(SearchLoading());
+    var result = await searchRepo.getCategory(category: category);
+
+    result.fold(
+      (faliure) {
+        emit(
+          SearchFailure( faliure.errMessage),
+        );
+      },
+      (books) {
+        emit(
+          SearchCategorySucess(books),
         );
       },
     );

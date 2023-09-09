@@ -40,4 +40,31 @@ class searchRepoImpl implements SearchRepo {
       );
     }
   }
+
+
+  @override
+  Future<Either<Failure, List<NewBookModel>>> getCategory(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              'volumes?q=subject:$category&download=epub&langRestrict=en');
+
+      List<NewBookModel> books = [];
+
+      for (var item in data['items']) {
+        try {
+          books.add(NewBookModel.fromJson(item));
+        } catch (e) {
+          books.add(NewBookModel.fromJson(item));
+        }
+      }
+      return Right(books);
+    } on DioException catch (e) {
+      return Left(ServerFaliure(
+          e.response?.data!['error']['message'] ?? 'Unknown error occurred'));
+    } catch (e) {
+      return Left(ServerFaliure(e.toString()));
+    }
+  }
 }

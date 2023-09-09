@@ -1,18 +1,40 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ebook_app/constants.dart';
-import 'package:ebook_app/core/utils/functions/firebase_data.dart';
+import 'package:ebook_app/core/utils/functions/getBookStatus.dart';
 import 'package:ebook_app/core/utils/functions/launch_url.dart';
 import 'package:ebook_app/core/widgets/custom_button.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ebook_app/features/home/presentation/view_models/book_status/book_status_cubit.dart';
+import 'package:ebook_app/features/home/presentation/view_models/firebase_data/firebase_data_cubit.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/book_status_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BooksAction extends StatelessWidget {
-  BooksAction({super.key, required this.bookModel});
+class BooksAction extends StatefulWidget {
+  const BooksAction({super.key, required this.bookModel});
 
   final NewBookModel bookModel;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  @override
+  State<BooksAction> createState() => _BooksActionState();
+}
+
+class _BooksActionState extends State<BooksAction> {
+  late bool _isBookInLibrary;
+
+  @override
+  void initState() {
+    super.initState();
+    _isBookInLibrary = false;
+    BlocProvider.of<BookStatusCubit>(context)
+        .checkIfBookIsInLibrary(widget.bookModel);
+  }
+
+  void setIsBookInLibrary(bool value) {
+    setState(() {
+      _isBookInLibrary = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,46 +43,56 @@ class BooksAction extends StatelessWidget {
         Expanded(
           child: CustomButton(
             onPressed: () async {
-              // launchCustomUrl(context, bookModel.volumeInfo.previewLink);
-              // launchCustomUrl(context, bookModel.accessInfo!.epub!.downloadLink ?? '');
-              launchCustomUrl(context, bookModel.accessInfo!.webReaderLink);
+              launchCustomUrl(
+                  context, widget.bookModel.accessInfo!.webReaderLink);
             },
-            text: getText(bookModel),
+            text: getText(widget.bookModel),
             textColor: Colors.white,
             backgroundColor: kSecondaryColor,
             borderRadius: const BorderRadius.all(Radius.circular(10)).r,
           ),
         ),
-        Expanded(
-          child: CustomButton(
-            onPressed: () async {
-              final User? user = _auth.currentUser;
-
-              final _uid = user!.uid;
-              FirebaseFirestore.instance
-                  .collection(_uid)
-                  .doc(bookModel.volumeInfo.industryIdentifiers?[0].identifier)
-                  .set({
-                'bookID': bookModel.id,
-              });
-
-              getDataFromDataBase();
-            },
-            text: 'add to favs',
-            textColor: Colors.white,
-            backgroundColor: kSecondaryColor,
-            borderRadius: const BorderRadius.all(Radius.circular(10)).r,
-          ),
-        ),
+        BookStatusWidget(),
       ],
     );
   }
 
-  String getText(NewBookModel bookModel) {
-    if (bookModel.volumeInfo.previewLink == null) {
-      return 'Not Available';
-    } else {
-      return 'Preview';
-    }
+  BlocBuilder<BookStatusCubit, BookStatusState> BookStatusWidget() {
+    return BlocBuilder<BookStatusCubit, BookStatusState>(
+      builder: (context, state) {
+        if (state is BookStatusInitial) {
+          return const CircularProgressIndicator();
+        } else if (state is BookStatusLoaded) {
+          _isBookInLibrary = state.isBookInLibrary;
+          return _isBookInLibrary
+              ? BookStatusButton(
+                  widget: widget,
+                  text: 'remove from favs',
+                  onPressed: () async {
+                    BlocProvider.of<BookStatusCubit>(context)
+                        .removeBookFromLibrary(widget.bookModel.volumeInfo
+                            .industryIdentifiers![0].identifier!);
+                                BlocProvider.of<FirebaseDataCubit>(context).getLibraryDataFromDataBase();
+
+                  },
+                )
+              : BookStatusButton(
+                  onPressed: () async {
+                    BlocProvider.of<BookStatusCubit>(context).addBookToLibrary(
+                        widget.bookModel.volumeInfo.industryIdentifiers![0]
+                            .identifier!);
+
+                                BlocProvider.of<FirebaseDataCubit>(context).getLibraryDataFromDataBase();
+
+                  },
+                  text: 'add to favs',
+                  widget: widget,
+                );
+        } else {
+          return const Text('Error');
+        }
+      },
+    );
   }
 }
+
