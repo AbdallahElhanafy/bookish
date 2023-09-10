@@ -16,7 +16,7 @@ class categoriesRepoImpl implements CategoriesRepo {
     try {
       var data = await apiService.get(
           endPoint:
-              'volumes?q=subject:$category&download=epub&langRestrict=en');
+              'volumes?q=subject:$category&langRestrict=en');
 
       List<NewBookModel> books = [];
 

@@ -15,7 +15,7 @@ class searchRepoImpl implements SearchRepo {
       {required String query}) async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=$query&download=epub&langRestrict=en');
+          endPoint: 'volumes?q=$query&langRestrict=en');
 
       List<NewBookModel> books = [];
 
@@ -48,7 +48,7 @@ class searchRepoImpl implements SearchRepo {
     try {
       var data = await apiService.get(
           endPoint:
-              'volumes?q=subject:$category&download=epub&langRestrict=en');
+              'volumes?q=subject:$category&langRestrict=en');
 
       List<NewBookModel> books = [];
 
