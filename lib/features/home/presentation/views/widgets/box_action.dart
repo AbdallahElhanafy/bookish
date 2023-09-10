@@ -80,8 +80,7 @@ class _BooksActionState extends State<BooksAction> {
                     icon: FontAwesomeIcons.solidHeart,
                     onPressed: () async {
                       BlocProvider.of<BookStatusCubit>(context)
-                          .removeBookFromLibrary(widget.bookModel.volumeInfo
-                              .industryIdentifiers![0].identifier!);
+                          .removeBookFromLibrary(widget.bookModel.id!);
                       BlocProvider.of<FirebaseDataCubit>(context)
                           .getLibraryDataFromDataBase();
                     },
@@ -91,8 +90,7 @@ class _BooksActionState extends State<BooksAction> {
                   child: BookStatusButton(
                     onPressed: () async {
                       BlocProvider.of<BookStatusCubit>(context)
-                          .addBookToLibrary(widget.bookModel.volumeInfo
-                              .industryIdentifiers![0].identifier!);
+                          .addBookToLibrary(widget.bookModel.id!);
 
                       BlocProvider.of<FirebaseDataCubit>(context)
                           .getLibraryDataFromDataBase();

@@ -24,7 +24,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
         CachedNetworkImageProvider(
             widget.bookModel.volumeInfo.imageLinks!.thumbnail));
     BlocProvider.of<FirebaseDataCubit>(context).isBookInLibrary(
-        widget.bookModel.volumeInfo.industryIdentifiers![0].identifier!);
+        widget.bookModel.id!);
 
     BlocProvider.of<FirebaseDataCubit>(context).getLibraryDataFromDataBase();
   }

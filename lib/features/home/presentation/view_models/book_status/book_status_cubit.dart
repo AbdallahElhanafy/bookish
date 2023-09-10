@@ -13,7 +13,7 @@ class BookStatusCubit extends Cubit<BookStatusState> {
 
   Future<void> checkIfBookIsInLibrary(NewBookModel bookModel) async {
     try {
-      final String isbn = bookModel.volumeInfo.industryIdentifiers![0].identifier!;
+      final String isbn = bookModel.id!;
       final bool result = await _firebaseData.isBookInLibrary(isbn);
       emit(BookStatusLoaded(result));
     } catch (e) {
