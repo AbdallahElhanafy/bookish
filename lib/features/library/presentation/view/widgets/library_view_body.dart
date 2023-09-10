@@ -16,6 +16,9 @@ class LibraryViewBody extends StatefulWidget {
 }
 
 class _LibraryViewBodyState extends State<LibraryViewBody> {
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+       GlobalKey<RefreshIndicatorState>();
+
   List<String> isbn = [];
   @override
   void initState() {
@@ -37,21 +40,32 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
               top: true,
               child: Padding(
                 padding: const EdgeInsets.all(30.0).r,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Favorite Books",
-                      style: Styles.text18,
-                    ),
-                    const Divider(
-                      thickness: 3,
-                      color: Colors.grey,
-                    ),
-                    const Expanded(
-                      child: LibraryListView(),
-                    ),
-                  ],
+                child:  RefreshIndicator(
+                      key: _refreshIndicatorKey,
+                      onRefresh: () async {
+                        BlocProvider.of<FirebaseDataCubit>(context)
+                            .getLibraryDataFromDataBase();
+                        BlocProvider.of<LibraryCubit>(context)
+                            .fetchLibraryBooks(isbn: isbn);
+                      },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Favorite Books",
+                        style: Styles.text18,
+                      ),
+                      const Divider(
+                        thickness: 3,
+                        color: Colors.grey,
+                      ),
+                     
+                         const Expanded(
+                          child: LibraryListView(),
+                        
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
