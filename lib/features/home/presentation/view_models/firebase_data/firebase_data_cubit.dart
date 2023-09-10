@@ -7,35 +7,27 @@ part 'firebase_data_state.dart';
 
 class FirebaseDataCubit extends Cubit<FirebaseDataState> {
   FirebaseDataCubit() : super(FirebaseDataInitial());
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  List<String> libraryIsbn = [];
+  late List<String> _libraryIsbn;
   bool isBookInLibraryBool = false;
 
-  Future<List<String>> getLibraryDataFromDataBase() async {
-    emit(
-      GetLibraryDataLoading(),
-    );
+  Future<void> getLibraryDataFromDataBase() async {
     try {
-      final QuerySnapshot result = await FirebaseFirestore.instance
-          .collection(FirebaseAuth.instance.currentUser!.uid)
-          .get();
-      List<String> documentIds = [];
-      for (var doc in result.docs) {
-        documentIds.add(doc.id);
-      }
-      emit(GetLibraryDataSucess());
-      libraryIsbn = documentIds;
-      
-      return documentIds;
+      final String uid = FirebaseAuth.instance.currentUser!.uid;
+      final QuerySnapshot<Map<String, dynamic>> querySnapshot =
+          await _firestore.collection(uid).get();
+      final List<String> isbnList = querySnapshot.docs
+          .map((DocumentSnapshot<Map<String, dynamic>> documentSnapshot) =>
+              documentSnapshot.id)
+          .toList();
+      _libraryIsbn = isbnList;
+      emit(GetLibraryDataSucess(libraryIsbn: _libraryIsbn));
     } catch (e) {
-      emit(
-        GetLibraryDataFailure(
-          e.toString(),
-        ),
-      );
-      return [];
+      emit(GetLibraryDataFailure( e.toString()));
     }
   }
+   List<String> get libraryIsbn => _libraryIsbn;
 
   Future<bool> isBookInLibrary(String isbn) async {
     final QuerySnapshot result = await FirebaseFirestore.instance

@@ -9,7 +9,14 @@ sealed class FirebaseDataState extends Equatable {
 final class FirebaseDataInitial extends FirebaseDataState {}
 
 final class GetLibraryDataLoading extends FirebaseDataState {}
-final class GetLibraryDataSucess extends FirebaseDataState {}
+final class GetLibraryDataSucess extends FirebaseDataState {
+  final List<String> libraryIsbn;
+
+  const GetLibraryDataSucess({required this.libraryIsbn});
+
+  @override
+  List<Object> get props => [libraryIsbn];
+}
 final class GetLibraryDataFailure extends FirebaseDataState {
   final String errMessage;
 

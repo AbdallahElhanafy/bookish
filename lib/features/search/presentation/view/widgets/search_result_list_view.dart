@@ -1,10 +1,9 @@
 import 'package:ebook_app/features/categories/presentation/view/widgets/CategoriesGridView.dart';
 import 'package:ebook_app/features/categories/presentation/view_models/category_tools/categories.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/Book_list_view_item.dart';
+import 'package:ebook_app/features/search/presentation/view/widgets/book_search_list_view.dart';
 import 'package:ebook_app/features/search/presentation/view_models/cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchResultListView extends StatelessWidget {
   SearchResultListView({super.key});
@@ -24,35 +23,13 @@ class SearchResultListView extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is SearchSucess) {
-          return ListView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: state.books.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0).r,
-                child: BookListViewItem(
-                  bookModel: state.books[index],
-                ),
-              );
-            },
-          );
+          return BookSearchListView(books: state.books,);
         } else if (state is SearchFailure) {
           return Center(
             child: Text(state.errMessage),
           );
         } else if (state is SearchCategorySucess) {
-          return ListView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: state.books.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0).r,
-                child: BookListViewItem(
-                  bookModel: state.books[index],
-                ),
-              );
-            },
-          );
+         return BookSearchListView(books: state.books,);
         } else {
           return const CircularProgressIndicator();
         }
@@ -60,3 +37,4 @@ class SearchResultListView extends StatelessWidget {
     );
   }
 }
+

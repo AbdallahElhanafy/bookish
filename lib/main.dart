@@ -53,7 +53,9 @@ class BooksApp extends StatelessWidget {
               create: (context) => FirebaseDataCubit(),
             ),
             BlocProvider(
-              create: (context) => BookStatusCubit(FirebaseData()),
+              create: (context) => BookStatusCubit(
+                FirebaseData(),
+              ),
             ),
           ],
           child: MaterialApp.router(

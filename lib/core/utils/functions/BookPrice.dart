@@ -7,7 +7,7 @@ var format = NumberFormat.simpleCurrency(locale: Platform.localeName);
 
 String bookPrice(NewBookModel bookModel) {
   if (bookModel.saleInfo?.saleability == 'FOR_SALE') {
-    return '${format.currencySymbol} ${bookModel.saleInfo!.listPrice!.amount}';
+    return '${format.currencyName} ${bookModel.saleInfo!.listPrice!.amount}';
   } else if (bookModel.saleInfo?.saleability == 'NOT_FOR_SALE') {
     return 'N/A';
   } else if (bookModel.saleInfo?.saleability == 'FREE') {
