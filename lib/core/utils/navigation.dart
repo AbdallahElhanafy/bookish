@@ -24,9 +24,9 @@ class _NavigationState extends State<Navigation> {
 
   final pages = [
     const HomeView(),
-   const CategoriesView(),
+    const LibraryView(),
     const SearchView(),
-   const LibraryView(),
+    const CategoriesView(),
   ];
 
   @override

@@ -20,7 +20,6 @@ class _SplashViewbodyState extends State<SplashViewbody>
   @override
   void initState() {
     super.initState();
-    initSlidingAnimation();
 
     navigateToHome();
   }
@@ -38,7 +37,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(height: 300.h, child: Image.asset(AssetsData.logoT)),
+        SizedBox(height: 300.h, child: Image.asset(AssetsData.symbolPurple)),
         const SizedBox(
           height: 4,
         ),
@@ -47,18 +46,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
     );
   }
 
-  void initSlidingAnimation() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
 
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
-            .animate(animationController);
-
-    animationController.forward();
-  }
 
   void navigateToHome() {
     Future.delayed(

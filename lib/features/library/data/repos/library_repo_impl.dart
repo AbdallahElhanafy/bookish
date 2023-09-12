@@ -21,7 +21,6 @@ class LibraryRepoImpl implements LibraryRepo {
        books.clear();
             for(String isbn in isbn){
       var data = await apiService.get(endPoint: 'volumes/$isbn?');
-      print(data);
      
         try {
           books.add(

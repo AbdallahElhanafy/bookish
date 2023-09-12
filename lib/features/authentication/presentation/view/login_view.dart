@@ -23,7 +23,7 @@ class LoginView extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: kSecondaryColor,
-        body: LoginViewBody(),
+        body: SafeArea(child: LoginViewBody()),
       ),
     );
   }

@@ -14,10 +14,10 @@ class CategoriesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 350,
-        childAspectRatio: 1,
-        //   crossAxisSpacing: 10,
-        //    mainAxisSpacing: 10,
+        maxCrossAxisExtent: 300,
+        childAspectRatio: 0.8,
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 5,
       ),
       itemCount: _categoriesConstructor.CategoriesList.length,
       scrollDirection: Axis.vertical,

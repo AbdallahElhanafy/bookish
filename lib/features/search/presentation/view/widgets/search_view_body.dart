@@ -16,13 +16,13 @@ class SearchViewBody extends StatelessWidget {
   final String query = '';
   final String category = '';
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SearchCubit(getIt.get<searchRepoImpl>(), query, category),
+      create: (context) =>
+          SearchCubit(getIt.get<searchRepoImpl>(), query, category),
       child: Padding(
-        padding: const EdgeInsets.only(top: 30.0, right: 30, left: 30).r,
+        padding: const EdgeInsets.only(top: 25.0, right: 25, left: 25).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -30,13 +30,10 @@ class SearchViewBody extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            Text(
-              'Search Result: ',
-              style: Styles.text18,
-            ),
+
             // Show books froms earch result
 
-             Expanded(
+            Expanded(
               child: SearchResultListView(),
             )
           ],

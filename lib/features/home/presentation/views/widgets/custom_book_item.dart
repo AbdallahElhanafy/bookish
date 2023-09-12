@@ -15,7 +15,6 @@ class CustomBookImage extends StatelessWidget {
   final String bookAuthor;
   final double aspectRatioHeight;
 
-  
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -29,12 +28,16 @@ class CustomBookImage extends StatelessWidget {
             width: 140,
             child: Text(
               bookTitle,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               softWrap: true,
               style: Styles.text14.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           Text(
             bookAuthor,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Styles.text13.copyWith(color: Colors.grey),
           ),
         ],

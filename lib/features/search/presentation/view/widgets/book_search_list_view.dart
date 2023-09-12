@@ -7,7 +7,8 @@ class BookSearchListView extends StatelessWidget {
   final List<NewBookModel> books;
 
   const BookSearchListView({
-    super.key, required this.books,
+    super.key,
+    required this.books,
   });
 
   @override

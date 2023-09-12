@@ -20,14 +20,11 @@ class CategoryItem extends StatelessWidget {
         BlocProvider.of<SearchCubit>(context)
             .getCategory(category: category);
       },
-      child: Padding(
-        padding: const EdgeInsets.all(10).r,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image:
-                DecorationImage(image: AssetImage(imgLink), fit: BoxFit.cover),
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image:
+              DecorationImage(image: AssetImage(imgLink), fit: BoxFit.cover),
         ),
       ),
     );

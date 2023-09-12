@@ -29,64 +29,85 @@ class BookSearchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170.h,
+      height: 180.h,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
         borderRadius: BorderRadius.circular(10.r),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0).r,
-            child: BookImg(aspectRatioHeight: 190, imageUrl: imageUrl),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0).r,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 150.w,
-                  child: Text(
-                    bookTitle,
-                    maxLines: 2,
-                    style: Styles.text16.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 100.w,
-                      child: Text(
-                        bookAuthor,
-                        maxLines: 1,
-                        style: Styles.text14,
-                      ),
+      child: Stack(children: [
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.r),
+              color: Colors.grey[200],
+            ),
+            height: 140.h,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0).r,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  SizedBox(
+                    width: 150.w,
+                    child: Text(
+                      bookTitle,
+                      maxLines: 2,
+                      style:
+                          Styles.text16.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    BookRating(rating: rating, count: count),
-                  ],
-                ),
-                const Spacer(),
-                SizedBox(
-                  height: 50,
-                  width: 150.w,
-                  child: CustomButton(
-                    backgroundColor: kSecondaryColor,
-                    text: 'Book Details',
-                    textColor: kPrimaryColor,
-                    onPressed: () {
-                      GoRouter.of(context)
-                          .push(AppRouter.kBookDetailsView, extra: bookModel);
-                    },
                   ),
-                )
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 100.w,
+                        child: Text(
+                          bookAuthor,
+                          maxLines: 1,
+                          style: Styles.text14,
+                        ),
+                      ),
+                      BookRating(rating: rating, count: count),
+                    ],
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    height: 50,
+                    width: 150.w,
+                    child: CustomButton(
+                      backgroundColor: kSecondaryColor,
+                      text: 'Book Details',
+                      textColor: kPrimaryColor,
+                      onPressed: () {
+                        GoRouter.of(context)
+                            .push(AppRouter.kBookDetailsView, extra: bookModel);
+                      },
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ],
-      ),
+        ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0).r,
+            child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: BookImg(aspectRatioHeight: 190, imageUrl: imageUrl)),
+          ),
+        ),
+      ]),
     );
   }
 }

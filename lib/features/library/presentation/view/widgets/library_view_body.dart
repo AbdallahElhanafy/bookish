@@ -17,7 +17,7 @@ class LibraryViewBody extends StatefulWidget {
 
 class _LibraryViewBodyState extends State<LibraryViewBody> {
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-       GlobalKey<RefreshIndicatorState>();
+      GlobalKey<RefreshIndicatorState>();
 
   List<String> isbn = [];
   @override
@@ -37,17 +37,19 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
           if (state is GetLibraryDataSucess) {
             isbn = state.libraryIsbn;
             return SafeArea(
+              bottom: false,
               top: true,
               child: Padding(
-                padding: const EdgeInsets.all(30.0).r,
-                child:  RefreshIndicator(
-                      key: _refreshIndicatorKey,
-                      onRefresh: () async {
-                        BlocProvider.of<FirebaseDataCubit>(context)
-                            .getLibraryDataFromDataBase();
-                        BlocProvider.of<LibraryCubit>(context)
-                            .fetchLibraryBooks(isbn: isbn);
-                      },
+                padding:
+                    const EdgeInsets.only(top: 30.0, left: 30, right: 30).r,
+                child: RefreshIndicator(
+                  key: _refreshIndicatorKey,
+                  onRefresh: () async {
+                    BlocProvider.of<FirebaseDataCubit>(context)
+                        .getLibraryDataFromDataBase();
+                    BlocProvider.of<LibraryCubit>(context)
+                        .fetchLibraryBooks(isbn: isbn);
+                  },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -59,10 +61,8 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
                         thickness: 3,
                         color: Colors.grey,
                       ),
-                     
-                         const Expanded(
-                          child: LibraryListView(),
-                        
+                      const Expanded(
+                        child: LibraryListView(),
                       ),
                     ],
                   ),

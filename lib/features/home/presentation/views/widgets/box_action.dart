@@ -46,8 +46,14 @@ class _BooksActionState extends State<BooksAction> {
           width: MediaQuery.of(context).size.width * 0.75,
           child: CustomButton(
             onPressed: () async {
-              launchCustomUrl(
+              if (widget.bookModel.saleInfo?.saleability == 'NOT_FOR_SALE'){
+
+              }
+              else {
+                launchCustomUrl(
                   context, widget.bookModel.accessInfo!.webReaderLink);
+              }
+              
             },
             text: getText(widget.bookModel),
             textColor: Colors.white,
