@@ -9,6 +9,7 @@ import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_w
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:html/parser.dart';
 
 class BookSearchItem extends StatelessWidget {
   const BookSearchItem(
@@ -29,6 +30,8 @@ class BookSearchItem extends StatelessWidget {
   final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
+       final document = parse(bookModel.volumeInfo.description ?? '');
+    final descriptionPlainText = document.body?.text ?? '';
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
@@ -106,7 +109,7 @@ class BookSearchItem extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.45,
                           child: Text(
-                            bookModel.volumeInfo.description ?? '',
+                            descriptionPlainText,
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.justify,

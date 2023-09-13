@@ -1,5 +1,4 @@
 import 'package:ebook_app/core/utils/service_locator.dart';
-import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/search/data/repos/search_repo_impl.dart';
 import 'package:ebook_app/features/search/presentation/view/widgets/custom_search_field.dart';
 import 'package:ebook_app/features/search/presentation/view/widgets/search_result_list_view.dart';

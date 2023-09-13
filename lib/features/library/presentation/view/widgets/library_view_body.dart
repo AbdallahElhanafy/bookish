@@ -75,8 +75,26 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
               child: Text('Error fetching library data'),
             );
           } else {
-            return const Center(
-              child: SearchListViewSkeleton(),
+            return SafeArea(
+              top: true,
+              bottom: false,
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(top: 25.0, left: 25, right: 25).r,
+                child: Column(
+                  children: [
+                    Text(
+                      "Favorite Books",
+                      style: Styles.text18,
+                    ),
+                    const Divider(
+                      thickness: 3,
+                      color: Colors.grey,
+                    ),
+                    const Expanded(child: SearchListViewSkeleton()),
+                  ],
+                ),
+              ),
             );
           }
         },

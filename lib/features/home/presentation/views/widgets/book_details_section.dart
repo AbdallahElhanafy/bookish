@@ -4,6 +4,8 @@ import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.
 import 'package:ebook_app/features/home/presentation/views/widgets/box_action.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/data_box.dart';
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart' show parse;
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -12,6 +14,8 @@ class BookDetailsSection extends StatelessWidget {
   final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
+     final document = parse(bookModel.volumeInfo.description ?? '');
+    final descriptionPlainText = document.body?.text ?? '';
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -96,7 +100,7 @@ class BookDetailsSection extends StatelessWidget {
               height: 10.h,
             ),
             Text(
-              bookModel.volumeInfo.description ?? 'N/A',
+             descriptionPlainText ,
               textAlign: TextAlign.justify,
               style: Styles.text16.copyWith(
                 color: Colors.grey[600],
