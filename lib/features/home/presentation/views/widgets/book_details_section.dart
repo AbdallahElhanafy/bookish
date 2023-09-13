@@ -53,7 +53,7 @@ class BookDetailsSection extends StatelessWidget {
                 Expanded(
                   child: DataBox(
                     data: bookModel.volumeInfo.ratingsCount?.toString() ?? '0',
-                    dataTitle: 'Rating',
+                    dataTitle: 'Rating Count',
                   ),
                 ),
                 Expanded(

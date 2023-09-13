@@ -46,7 +46,7 @@ class BookSearchItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.r),
                 color: Colors.grey[200],
               ),
-              height: 140.h,
+              height: 150.h,
               child: Padding(
                 padding: const EdgeInsets.all(10.0).r,
                 child: Column(
@@ -106,7 +106,7 @@ class BookSearchItem extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.45,
                           child: Text(
-                            bookModel.volumeInfo.description!,
+                            bookModel.volumeInfo.description ?? '',
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.justify,

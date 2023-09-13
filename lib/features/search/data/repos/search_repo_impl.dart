@@ -14,8 +14,8 @@ class searchRepoImpl implements SearchRepo {
   Future<Either<Failure, List<NewBookModel>>> searchBooks(
       {required String query}) async {
     try {
-      var data = await apiService.get(
-          endPoint: 'volumes?q=$query&langRestrict=en&maxResults=20');
+      var data =
+          await apiService.get(endPoint: 'volumes?q=$query&maxResults=20');
 
       List<NewBookModel> books = [];
 
@@ -54,7 +54,6 @@ class searchRepoImpl implements SearchRepo {
               'volumes?q=subject:$category&langRestrict=en&download=epub&maxResults=20');
 
       List<NewBookModel> books = [];
-      
 
       for (var item in data['items']) {
         try {
