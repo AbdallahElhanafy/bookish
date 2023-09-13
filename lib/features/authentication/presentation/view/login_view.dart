@@ -15,15 +15,13 @@ class LoginView extends StatelessWidget {
     return BlocListener<AuthenticationCubit, AuthenticationState>(
       listener: (context, state) {
         if (state is loginSuccess) {
-                 GoRouter.of(context).push(AppRouter.kNavigation);
-
+          GoRouter.of(context).push(AppRouter.kNavigation);
         } else if (state is loginFailure) {
           showSnackBar(context, state.errMessage);
         }
       },
       child: Scaffold(
-        backgroundColor: kSecondaryColor,
-        body: SafeArea(child: LoginViewBody()),
+        body: LoginViewBody(),
       ),
     );
   }

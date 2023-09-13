@@ -31,85 +31,94 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0).r,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/images/logo_white.png'),
-          SizedBox(
-            height: 30.h,
-          ),
-          MyTextField(
-              keyboard: TextInputType.emailAddress,
-              controller: emailController,
-              hintText: "Email",
-              obscureText: false),
-          SizedBox(
-            height: 15.h,
-          ),
-          MyTextField(
-              keyboard: TextInputType.name,
-              controller: passwordController,
-              hintText: "Password",
-              obscureText: true),
-          SizedBox(
-            height: 15.h,
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: CustomButton(
-              backgroundColor: Colors.white,
-              text: "Login",
-              textColor: kSecondaryColor,
-              onPressed: () {
-                BlocProvider.of<AuthenticationCubit>(context).loginUser(
-                    email: emailController.text.trim(),
-                    password: passwordController.text.trim());
-              },
+    return Stack(children: [
+      Container(
+          decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/auth.gif'),
+          fit: BoxFit.cover,
+        ),
+      ),),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25.0).r,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/logo_white.png'),
+            SizedBox(
+              height: 30.h,
             ),
-          ),
-          SizedBox(height: 15.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(
-                child: Divider(
-                  color: kPrimaryColor,
-                  thickness: 2,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
-                child: Text(
-                  "Or",
-                  style: Styles.text16.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const Expanded(
-                child: Divider(
-                  color: kPrimaryColor,
-                  thickness: 2,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 15.h),
-          SizedBox(
-            width: double.infinity,
-            child: CustomButton(
-              backgroundColor: Color(0xff9c54d5),
-              text: "Create an account",
-              textColor: kPrimaryColor,
-              onPressed: () {
-                GoRouter.of(context).go(AppRouter.kRegisterView);
-              },
+            MyTextField(
+                keyboard: TextInputType.emailAddress,
+                controller: emailController,
+                hintText: "Email",
+                obscureText: false),
+            SizedBox(
+              height: 15.h,
             ),
-          ),
-        ],
+            MyTextField(
+                keyboard: TextInputType.name,
+                controller: passwordController,
+                hintText: "Password",
+                obscureText: true),
+            SizedBox(
+              height: 15.h,
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: CustomButton(
+                backgroundColor: Colors.white,
+                text: "Login",
+                textColor: kSecondaryColor,
+                onPressed: () {
+                  BlocProvider.of<AuthenticationCubit>(context).loginUser(
+                      email: emailController.text.trim(),
+                      password: passwordController.text.trim());
+                },
+              ),
+            ),
+            SizedBox(height: 15.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Expanded(
+                  child: Divider(
+                    color: kPrimaryColor,
+                    thickness: 2,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
+                  child: Text(
+                    "Or",
+                    style: Styles.text16.copyWith(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const Expanded(
+                  child: Divider(
+                    color: kPrimaryColor,
+                    thickness: 2,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 15.h),
+            SizedBox(
+              width: double.infinity,
+              child: CustomButton(
+                backgroundColor: Color(0xff9c54d5),
+                text: "Create an account",
+                textColor: kPrimaryColor,
+                onPressed: () {
+                  GoRouter.of(context).go(AppRouter.kRegisterView);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
-    );
+    ]);
   }
 }
