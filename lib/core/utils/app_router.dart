@@ -1,7 +1,6 @@
 import 'package:ebook_app/core/utils/navigation.dart';
 import 'package:ebook_app/core/utils/service_locator.dart';
-import 'package:ebook_app/features/authentication/presentation/view/login_view.dart';
-import 'package:ebook_app/features/authentication/presentation/view/register_view.dart';
+import 'package:ebook_app/features/authentication/presentation/view/auth_view.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:ebook_app/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
@@ -14,8 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const kRegisterView = '/registerView';
-  static const kLoginView = '/loginView';
+  static const kAuthView = '/AuthView';
   static const kLibraryView = '/libraryView';
   static const kHomeView = '/homeView';
   static const kNavigation = '/navView';
@@ -23,7 +21,6 @@ abstract class AppRouter {
   static const kBookDetailsView = '/bookDetailsView';
   static final router = GoRouter(
     routes: [
-
       GoRoute(
         path: '/',
         builder: (context, state) => const SplashView(),
@@ -32,13 +29,9 @@ abstract class AppRouter {
         path: kHomeView,
         builder: (context, state) => const HomeView(),
       ),
-       GoRoute(
-        path: kLoginView,
-        builder: (context, state) => const LoginView(),
-      ),
-       GoRoute(
-        path: kRegisterView,
-        builder: (context, state) => const RegisterView(),
+      GoRoute(
+        path: kAuthView,
+        builder: (context, state) => const AuthView(),
       ),
       GoRoute(
         path: kNavigation,
@@ -61,7 +54,6 @@ abstract class AppRouter {
         path: kLibraryView,
         builder: (context, state) => const LibraryView(),
       ),
-
     ],
   );
 }

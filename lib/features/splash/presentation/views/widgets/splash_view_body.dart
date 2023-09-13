@@ -46,8 +46,6 @@ class _SplashViewbodyState extends State<SplashViewbody>
     );
   }
 
-
-
   void navigateToHome() {
     Future.delayed(
       const Duration(seconds: 2),
@@ -57,7 +55,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
         //     transition: Transition.fade,
         //     duration: kTranstionDuration);
 
-        GoRouter.of(context).push(AppRouter.kLoginView);
+        GoRouter.of(context).push(AppRouter.kAuthView);
       },
     );
   }
