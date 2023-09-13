@@ -15,15 +15,19 @@ class searchRepoImpl implements SearchRepo {
       {required String query}) async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=$query&langRestrict=en');
+          endPoint: 'volumes?q=$query&langRestrict=en&maxResults=20');
 
       List<NewBookModel> books = [];
 
       for (var item in data['items']) {
         try {
-          books.add(NewBookModel.fromJson(item),);
+          books.add(
+            NewBookModel.fromJson(item),
+          );
         } catch (e) {
-          books.add(NewBookModel.fromJson(item),);
+          books.add(
+            NewBookModel.fromJson(item),
+          );
         }
       }
       return Right(books);
@@ -41,16 +45,16 @@ class searchRepoImpl implements SearchRepo {
     }
   }
 
-
   @override
   Future<Either<Failure, List<NewBookModel>>> getCategory(
       {required String category}) async {
     try {
       var data = await apiService.get(
           endPoint:
-              'volumes?q=subject:$category&langRestrict=en&download=epub');
+              'volumes?q=subject:$category&langRestrict=en&download=epub&maxResults=20');
 
       List<NewBookModel> books = [];
+      
 
       for (var item in data['items']) {
         try {
@@ -59,6 +63,7 @@ class searchRepoImpl implements SearchRepo {
           books.add(NewBookModel.fromJson(item));
         }
       }
+      books.shuffle();
       return Right(books);
     } on DioException catch (e) {
       return Left(ServerFaliure(

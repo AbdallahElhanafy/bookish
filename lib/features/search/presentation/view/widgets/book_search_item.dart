@@ -3,6 +3,7 @@ import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/core/widgets/custom_button.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
+import 'package:ebook_app/features/home/presentation/views/book_details_view.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/bookImg.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:flutter/material.dart';
@@ -28,86 +29,117 @@ class BookSearchItem extends StatelessWidget {
   final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 180.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Stack(children: [
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              color: Colors.grey[200],
-            ),
-            height: 140.h,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0).r,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  SizedBox(
-                    width: 150.w,
-                    child: Text(
-                      bookTitle,
-                      maxLines: 2,
-                      style:
-                          Styles.text16.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      SizedBox(
-                        width: 100.w,
-                        child: Text(
-                          bookAuthor,
-                          maxLines: 1,
-                          style: Styles.text14,
-                        ),
-                      ),
-                      BookRating(rating: rating, count: count),
-                    ],
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 50,
-                    width: 150.w,
-                    child: CustomButton(
-                      backgroundColor: kSecondaryColor,
-                      text: 'Book Details',
-                      textColor: kPrimaryColor,
-                      onPressed: () {
-                        GoRouter.of(context)
-                            .push(AppRouter.kBookDetailsView, extra: bookModel);
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
+      },
+      child: Container(
+        height: 180.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.r),
         ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0).r,
+        child: Stack(children: [
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 1,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3), // changes position of shadow
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.r),
+                color: Colors.grey[200],
+              ),
+              height: 140.h,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0).r,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.35),
+                        SizedBox(
+                          width: 150.w,
+                          child: Text(
+                            bookTitle,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: Styles.text16
+                                .copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.35,
+                        ),
+                        SizedBox(
+                          width: 100.w,
+                          child: Text(
+                            bookAuthor,
+                            maxLines: 1,
+                            style: Styles.text14.copyWith(
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.35,
+                        ),
+                        Text(
+                          "Publish Date: ${bookModel.volumeInfo.publishedDate}",
+                          maxLines: 1,
+                          style: Styles.text13.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.35,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          child: Text(
+                            bookModel.volumeInfo.description!,
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                child: BookImg(aspectRatioHeight: 190, imageUrl: imageUrl)),
+              ),
+            ),
           ),
-        ),
-      ]),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0).r,
+              child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: BookImg(aspectRatioHeight: 190, imageUrl: imageUrl)),
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }

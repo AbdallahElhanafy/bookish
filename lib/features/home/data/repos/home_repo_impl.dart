@@ -33,6 +33,7 @@ class HomeRepoImpl implements HomeRepo {
  for (var item in data['items']) {
         books.add(NewBookModel.fromJson(item));
       }
+       books.shuffle();
 
       return right(books);
     } catch (e) {
@@ -62,6 +63,7 @@ class HomeRepoImpl implements HomeRepo {
 
         books.add(NewBookModel.fromJson(item));
       }
+       books.shuffle();
 
       return right(books);
     } catch (e) {
