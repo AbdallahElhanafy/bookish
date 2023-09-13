@@ -1,6 +1,7 @@
 import 'package:ebook_app/features/home/presentation/views/widgets/Book_list_view_item.dart';
 import 'package:ebook_app/features/library/presentation/view_models/library_cubit/library_cubit.dart';
 import 'package:ebook_app/features/search/presentation/view/widgets/book_search_list_view.dart';
+import 'package:ebook_app/features/search/presentation/view/widgets/search_list_view_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,12 +14,10 @@ class LibraryListView extends StatelessWidget {
     return BlocBuilder<LibraryCubit, LibraryState>(
       builder: (context, state) {
         if (state is LibraryInitial) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center();
         } else if (state is LibraryLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return Center(
+            child: const SearchListViewSkeleton(),
           );
         } else if (state is LibrarySucess) {
           return BookSearchListView(

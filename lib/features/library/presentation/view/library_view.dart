@@ -6,6 +6,6 @@ class LibraryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LibraryViewBody();
+    return const LibraryViewBody();
   }
 }

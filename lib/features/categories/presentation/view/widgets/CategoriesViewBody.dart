@@ -3,6 +3,7 @@ import 'package:ebook_app/features/categories/presentation/view/widgets/Categori
 import 'package:ebook_app/features/categories/presentation/view_models/category_cubit/categories_cubit.dart';
 import 'package:ebook_app/features/categories/presentation/view_models/category_tools/categories.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/Book_list_view_item.dart';
+import 'package:ebook_app/features/search/presentation/view/widgets/search_list_view_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,17 +31,14 @@ class CategoriesViewBody extends StatelessWidget {
             padding: EdgeInsets.zero,
             itemCount: state.books.length,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0).r,
-                child: BookListViewItem(
-                  bookModel: state.books[index],
-                ),
+              return BookListViewItem(
+                bookModel: state.books[index],
               );
             },
           );
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: SearchListViewSkeleton(),
           );
         }
       },

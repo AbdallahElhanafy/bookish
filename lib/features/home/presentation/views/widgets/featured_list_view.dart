@@ -1,8 +1,8 @@
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/widgets/custom_error_widget.dart';
-import 'package:ebook_app/core/widgets/loading_indecator.dart';
 import 'package:ebook_app/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/custom_book_item.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/home_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +10,6 @@ import 'package:go_router/go_router.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +32,14 @@ class FeaturedBooksListView extends StatelessWidget {
                           extra: state.books[index]);
                     },
                     child: CustomBookImage(
-                      aspectRatioHeight: 170.h,
-                      bookAuthor:
-                          state.books[index].volumeInfo.authors?[0] ?? '',
-                      bookTitle: state.books[index].volumeInfo.title ?? '',
-                      imageUrl:
-
-                      state.books[index].volumeInfo.imageLinks?.thumbnail.replaceAll('zoom=1', 'zoom=10') ?? ''
-                    ),
+                        aspectRatioHeight: 170.h,
+                        bookAuthor:
+                            state.books[index].volumeInfo.authors?[0] ?? '',
+                        bookTitle: state.books[index].volumeInfo.title ?? '',
+                        imageUrl: state
+                                .books[index].volumeInfo.imageLinks?.thumbnail
+                                .replaceAll('zoom=1', 'zoom=10') ??
+                            ''),
                   ),
                 );
               }),
@@ -49,7 +48,7 @@ class FeaturedBooksListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return const CustomLoadingIndecator();
+          return  HomeSkeleton(height: 240.h, aspectHeight:200 ,);
         }
       },
     );

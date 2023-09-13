@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class BookImg extends StatelessWidget {
   const BookImg({
@@ -23,7 +24,9 @@ class BookImg extends StatelessWidget {
           child: CachedNetworkImage(
             fit: BoxFit.fill,
             imageUrl: imageUrl,
-            placeholder: (context, url) => const CircularProgressIndicator(),
+            placeholder: (context, url) => Skeletonizer(
+              child: Image.asset('assets/images/book_skele.jpg'),
+            ),
             errorWidget: (context, url, error) =>
                 const Icon(Icons.question_mark),
           ),

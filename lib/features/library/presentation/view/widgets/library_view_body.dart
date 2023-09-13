@@ -4,6 +4,7 @@ import 'package:ebook_app/features/home/presentation/view_models/firebase_data/f
 import 'package:ebook_app/features/library/data/repos/library_repo_impl.dart';
 import 'package:ebook_app/features/library/presentation/view/widgets/Library_list_view.dart';
 import 'package:ebook_app/features/library/presentation/view_models/library_cubit/library_cubit.dart';
+import 'package:ebook_app/features/search/presentation/view/widgets/search_list_view_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +42,7 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
               top: true,
               child: Padding(
                 padding:
-                    const EdgeInsets.only(top: 30.0, left: 30, right: 30).r,
+                    const EdgeInsets.only(top: 25.0, left: 25, right: 25).r,
                 child: RefreshIndicator(
                   key: _refreshIndicatorKey,
                   onRefresh: () async {
@@ -75,7 +76,7 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: SearchListViewSkeleton(),
             );
           }
         },
