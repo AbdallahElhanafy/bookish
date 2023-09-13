@@ -16,8 +16,8 @@ class LibraryListView extends StatelessWidget {
         if (state is LibraryInitial) {
           return const Center();
         } else if (state is LibraryLoading) {
-          return Center(
-            child: const SearchListViewSkeleton(),
+          return const Center(
+            child:  SearchListViewSkeleton(),
           );
         } else if (state is LibrarySucess) {
           return BookSearchListView(

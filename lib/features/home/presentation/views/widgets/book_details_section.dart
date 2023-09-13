@@ -58,8 +58,9 @@ class BookDetailsSection extends StatelessWidget {
                 ),
                 Expanded(
                   child: DataBox(
-                    data: bookModel.volumeInfo.categories?[0] ?? 'N/A',
-                    dataTitle: 'Category',
+                    data:
+                        bookModel.volumeInfo.publishedDate?.toString() ?? 'N/A',
+                    dataTitle: 'Publish Date',
                   ),
                 ),
                 Expanded(
@@ -95,8 +96,8 @@ class BookDetailsSection extends StatelessWidget {
               height: 10.h,
             ),
             Text(
-              bookModel.volumeInfo.description ??  'N/A' ,
-             textAlign: TextAlign.justify,
+              bookModel.volumeInfo.description ?? 'N/A',
+              textAlign: TextAlign.justify,
               style: Styles.text16.copyWith(
                 color: Colors.grey[600],
               ),
