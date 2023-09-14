@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class SearchListViewSkeleton extends StatelessWidget {
- const  SearchListViewSkeleton({
+  const SearchListViewSkeleton({
     super.key,
   });
 
@@ -18,7 +18,7 @@ class SearchListViewSkeleton extends StatelessWidget {
           return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0).r,
               child: Container(
-                height: 180.h,
+                height: MediaQuery.of(context).size.height * 0.30,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
                 ),
@@ -30,7 +30,7 @@ class SearchListViewSkeleton extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.r),
                         color: Colors.grey[200],
                       ),
-                      height: 140.h,
+                      height: MediaQuery.of(context).size.height * 0.22,
                       child: Padding(
                         padding: const EdgeInsets.all(10.0).r,
                         child: Column(
@@ -71,7 +71,7 @@ class SearchListViewSkeleton extends StatelessWidget {
                                   width:
                                       MediaQuery.of(context).size.width * 0.35,
                                 ),
-                             const   Text(
+                                const Text(
                                   "Publish Date: ",
                                   maxLines: 1,
                                 ),
@@ -88,7 +88,7 @@ class SearchListViewSkeleton extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.45,
                                   child: const Text(
                                     'bookModel.volumeInfo.description!',
-                                    maxLines: 4,
+                                    maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.justify,
                                   ),
@@ -109,10 +109,7 @@ class SearchListViewSkeleton extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.r),
                           color: Colors.grey[300],
                         ),
-                        child: const BookImg(
-                            aspectRatioHeight: 190,
-                            imageUrl:
-                                ''),
+                        child: BookImg(aspectRatioHeight: 150.h, imageUrl: ''),
                       ),
                     ),
                   ),

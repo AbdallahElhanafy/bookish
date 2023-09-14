@@ -1,4 +1,5 @@
 import 'package:ebook_app/constants.dart';
+import 'package:ebook_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
@@ -31,7 +32,7 @@ class MyTextField extends StatelessWidget {
           fillColor: Colors.grey.shade200,
           filled: true,
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.grey[500])),
+          hintStyle: Styles.text13),
     );
   }
 }

@@ -82,8 +82,8 @@ class _BooksActionState extends State<BooksAction> {
               ? Expanded(
                   child: BookStatusButton(
                     widget: widget,
-                    icon: FontAwesomeIcons.solidHeart,
-                    onPressed: () async {
+                    icon: FontAwesomeIcons.solidHeart ,
+                    onPressed: () async { 
                       BlocProvider.of<BookStatusCubit>(context)
                           .removeBookFromLibrary(widget.bookModel.id!);
                       BlocProvider.of<FirebaseDataCubit>(context)

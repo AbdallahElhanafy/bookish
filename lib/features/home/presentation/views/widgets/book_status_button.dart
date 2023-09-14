@@ -8,7 +8,7 @@ class BookStatusButton extends StatelessWidget {
 
   final icon;
 
- const  BookStatusButton({
+  const BookStatusButton({
     super.key,
     required this.widget,
     required this.onPressed,
@@ -31,6 +31,7 @@ class BookStatusButton extends StatelessWidget {
         onPressed: onPressed,
         icon: Icon(
           icon,
+          size: 25.r,
           color: Colors.white,
         ),
       ),

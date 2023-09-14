@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
                   height: 30.h,
                 ),
                 Container(
-                  height: 100.h,
+                  height: MediaQuery.of(context).size.height * 0.15,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
@@ -34,9 +34,10 @@ class HomeViewBody extends StatelessWidget {
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                     ),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(15).r,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
                         padding:
@@ -64,7 +65,9 @@ class HomeViewBody extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 12.0).r,
-                        child: SizedBox(child: Image.asset(AssetsData.homeImg)),
+                        child: SizedBox(
+                            width: 150.w,
+                            child: Image.asset(AssetsData.homeImg)),
                       ),
                     ],
                   ),

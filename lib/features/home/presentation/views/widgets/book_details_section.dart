@@ -14,7 +14,7 @@ class BookDetailsSection extends StatelessWidget {
   final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
-     final document = parse(bookModel.volumeInfo.description ?? '');
+    final document = parse(bookModel.volumeInfo.description ?? '');
     final descriptionPlainText = document.body?.text ?? '';
     return Container(
       decoration: const BoxDecoration(
@@ -51,38 +51,41 @@ class BookDetailsSection extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: DataBox(
-                    data: bookModel.volumeInfo.ratingsCount?.toString() ?? '0',
-                    dataTitle: 'Rating Count',
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: DataBox(
+                      data:
+                          bookModel.volumeInfo.ratingsCount?.toString() ?? '0',
+                      dataTitle: 'Rating Count',
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: DataBox(
-                    data:
-                        bookModel.volumeInfo.publishedDate?.toString() ?? 'N/A',
-                    dataTitle: 'Publish Date',
+                  Expanded(
+                    child: DataBox(
+                      data: bookModel.volumeInfo.publishedDate?.toString() ??
+                          'N/A',
+                      dataTitle: 'Publish Date',
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: DataBox(
-                    data: bookModel.volumeInfo.pageCount?.toString() ?? 'N/A',
-                    dataTitle: 'Pages',
+                  Expanded(
+                    child: DataBox(
+                      data: bookModel.volumeInfo.pageCount?.toString() ?? 'N/A',
+                      dataTitle: 'Pages',
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: DataBox(
-                    data: bookPrice(bookModel),
-                    dataTitle: 'Price',
+                  Expanded(
+                    child: DataBox(
+                      data: bookPrice(bookModel),
+                      dataTitle: 'Price',
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            SizedBox(
-              height: 10.h,
+            const SizedBox(
+              height: 10,
             ),
             BooksAction(bookModel: bookModel),
             SizedBox(
@@ -100,7 +103,7 @@ class BookDetailsSection extends StatelessWidget {
               height: 10.h,
             ),
             Text(
-             descriptionPlainText ,
+              descriptionPlainText,
               textAlign: TextAlign.justify,
               style: Styles.text16.copyWith(
                 color: Colors.grey[600],

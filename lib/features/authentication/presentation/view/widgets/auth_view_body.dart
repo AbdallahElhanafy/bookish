@@ -64,12 +64,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
               width: double.infinity,
               child: Image.asset(AssetsData.logoWhite),
             ),
-            SizedBox(
-              height: 30.h,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.280,
-            ),
+            const Spacer(),
             SizedBox(
               width: double.infinity,
               child: CustomButton(
@@ -119,6 +114,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                 },
               ),
             ),
+            SizedBox(height: 60.w),
           ],
         ),
       ),
@@ -140,11 +136,11 @@ class _AuthViewBodyState extends State<AuthViewBody> {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
-            height: 360.h,
+            height: MediaQuery.of(context).size.height * 0.6,
             child: Padding(
-              padding: const EdgeInsets.all(25.0).r,
+              padding: const EdgeInsets.all(20.0).r,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
@@ -157,31 +153,41 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                   SizedBox(
                     height: 30.h,
                   ),
-                  MyTextField(
-                      keyboard: TextInputType.name,
-                      controller: nameController,
-                      hintText: "Full Name",
-                      obscureText: false),
                   SizedBox(
-                    height: 15.h,
-                  ),
-                  MyTextField(
-                      keyboard: TextInputType.emailAddress,
-                      controller: emailController,
-                      hintText: "Email",
-                      obscureText: false),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  MyTextField(
-                      keyboard: TextInputType.name,
-                      controller: passwordController,
-                      hintText: "Password",
-                      obscureText: true),
-                  SizedBox(
-                    height: 15.h,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: MyTextField(
+                        keyboard: TextInputType.name,
+                        controller: nameController,
+                        hintText: "Full Name",
+                        obscureText: false),
                   ),
                   SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: MyTextField(
+                        keyboard: TextInputType.emailAddress,
+                        controller: emailController,
+                        hintText: "Email",
+                        obscureText: false),
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: MyTextField(
+                        keyboard: TextInputType.name,
+                        controller: passwordController,
+                        hintText: "Password",
+                        obscureText: true),
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: double.infinity,
                     child: CustomButton(
                       backgroundColor: kSecondaryColor,
@@ -220,11 +226,11 @@ class _AuthViewBodyState extends State<AuthViewBody> {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
-            height: 320.h,
+            height: MediaQuery.of(context).size.height * 0.5,
             child: Padding(
-              padding: const EdgeInsets.all(25.0).r,
+              padding: const EdgeInsets.all(20.0).r,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
@@ -237,23 +243,30 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                   SizedBox(
                     height: 30.h,
                   ),
-                  MyTextField(
-                      keyboard: TextInputType.emailAddress,
-                      controller: emailController,
-                      hintText: "Email",
-                      obscureText: false),
                   SizedBox(
-                    height: 15.h,
-                  ),
-                  MyTextField(
-                      keyboard: TextInputType.name,
-                      controller: passwordController,
-                      hintText: "Password",
-                      obscureText: true),
-                  SizedBox(
-                    height: 15.h,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: MyTextField(
+                        keyboard: TextInputType.emailAddress,
+                        controller: emailController,
+                        hintText: "Email",
+                        obscureText: false),
                   ),
                   SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    child: MyTextField(
+                        keyboard: TextInputType.name,
+                        controller: passwordController,
+                        hintText: "Password",
+                        obscureText: true),
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: double.infinity,
                     child: CustomButton(
                       backgroundColor: kSecondaryColor,

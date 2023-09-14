@@ -17,15 +17,14 @@ class SettingsViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(25.0).r,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             "Settings",
             style: Styles.text20.copyWith(fontWeight: FontWeight.bold),
           ),
           Divider(thickness: 3.r, color: kSecondaryColor),
-          SizedBox(
-            height: 20.h,
+          const SizedBox(
+            height: 20,
           ),
           Container(
             height: 40.h,
@@ -44,16 +43,17 @@ class SettingsViewBody extends StatelessWidget {
                   onPressed: () {
                     BlocProvider.of<AuthenticationCubit>(context).signOut();
                   },
-                  icon: const Icon(
+                  icon: Icon(
                     FontAwesomeIcons.arrowRight,
                     color: kSecondaryColor,
+                    size: 25.r,
                   ),
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: 30.h,
+            height: 20.w,
           ),
           Container(
             height: 40.h,
@@ -68,16 +68,17 @@ class SettingsViewBody extends StatelessWidget {
                   style: Styles.text18.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
-                const Text('Coming Soon '),
+                Text(
+                  'Coming Soon ',
+                  style: Styles.text16,
+                ),
               ],
             ),
           ),
-          SizedBox(
-            height: 50.h,
-          ),
+          Spacer(),
           SizedBox(
             width: double.infinity,
-            child: Lottie.asset(AssetsData.settings),
+            child: Image.asset(AssetsData.homeImg),
           )
         ],
       ),

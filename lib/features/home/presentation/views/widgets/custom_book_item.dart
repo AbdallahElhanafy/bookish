@@ -18,14 +18,13 @@ class CustomBookImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16.r),
+      borderRadius: BorderRadius.circular(16.r).r,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BookImg(aspectRatioHeight: aspectRatioHeight, imageUrl: imageUrl),
-          const SizedBox(height: 8),
-          SizedBox(
-            width: 140,
+          SizedBox(height: 8.h),
+          Flexible(
             child: Text(
               bookTitle,
               maxLines: 1,
@@ -34,11 +33,13 @@ class CustomBookImage extends StatelessWidget {
               style: Styles.text14.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
-          Text(
-            bookAuthor,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: Styles.text13.copyWith(color: Colors.grey),
+          Flexible(
+            child: Text(
+              bookAuthor,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Styles.text13.copyWith(color: Colors.grey),
+            ),
           ),
         ],
       ),

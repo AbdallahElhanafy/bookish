@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:html/parser.dart';
 
 class BookSearchItem extends StatelessWidget {
-  const BookSearchItem(
+  BookSearchItem(
       {super.key,
       required this.imageUrl,
       required this.bookTitle,
@@ -26,14 +26,14 @@ class BookSearchItem extends StatelessWidget {
   final NewBookModel bookModel;
   @override
   Widget build(BuildContext context) {
-       final document = parse(bookModel.volumeInfo.description ?? '');
+    final document = parse(bookModel.volumeInfo.description ?? '');
     final descriptionPlainText = document.body?.text ?? '';
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: Container(
-        height: 180.h,
+        height: MediaQuery.of(context).size.height * 0.30,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
         ),
@@ -42,76 +42,81 @@ class BookSearchItem extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.r),
+                borderRadius: BorderRadius.circular(10),
                 color: Colors.grey[200],
               ),
-              height: 150.h,
+              height: MediaQuery.of(context).size.height * 0.22,
               child: Padding(
                 padding: const EdgeInsets.all(10.0).r,
-                child: Column(
+                child: Row(
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.35),
-                        SizedBox(
-                          width: 150.w,
-                          child: Text(
-                            bookTitle,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: Styles.text16
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
+                    SizedBox(
+                      width: 110.h,
                     ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.35,
-                        ),
-                        SizedBox(
-                          width: 100.w,
-                          child: Text(
-                            bookAuthor,
-                            maxLines: 1,
-                            style: Styles.text14.copyWith(
-                              fontWeight: FontWeight.w600,
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  bookTitle,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: Styles.text16
+                                      .copyWith(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  bookAuthor,
+                                  maxLines: 1,
+                                  style: Styles.text14.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  "Publish Date: ${bookModel.volumeInfo.publishedDate}",
+                                  maxLines: 1,
+                                  style: Styles.text13.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    descriptionPlainText,
+                                    style: Styles.text14,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.justify,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.35,
-                        ),
-                        Text(
-                          "Publish Date: ${bookModel.volumeInfo.publishedDate}",
-                          maxLines: 1,
-                          style: Styles.text13.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.35,
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.45,
-                          child: Text(
-                            descriptionPlainText,
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.justify,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -134,7 +139,7 @@ class BookSearchItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: BookImg(aspectRatioHeight: 190, imageUrl: imageUrl)),
+                  child: BookImg(aspectRatioHeight: 150.h, imageUrl: imageUrl)),
             ),
           ),
         ]),

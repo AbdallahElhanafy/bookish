@@ -21,10 +21,13 @@ class NewestBooksListView extends StatelessWidget {
               padding: EdgeInsets.zero,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
-                  child: BookListViewItem(
-                    bookModel: state.books[index],
+                return SizedBox(
+                  width: 150.h,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
+                    child: BookListViewItem(
+                      bookModel: state.books[index],
+                    ),
                   ),
                 );
               },
@@ -42,5 +45,3 @@ class NewestBooksListView extends StatelessWidget {
     );
   }
 }
-
-

@@ -12,10 +12,10 @@ class DataBox extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 2.0).r,
       child: Container(
-        height: 40.h,
+        height: 50.w,
         decoration: BoxDecoration(
           color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5).r,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +24,8 @@ class DataBox extends StatelessWidget {
               fit: BoxFit.fitWidth,
               child: Text(
                 data,
-                style:const  TextStyle(
+                style: TextStyle(
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -32,6 +33,7 @@ class DataBox extends StatelessWidget {
             Text(
               dataTitle,
               style: TextStyle(
+                fontSize: 12.sp,
                 color: Colors.grey[600],
               ),
             ),

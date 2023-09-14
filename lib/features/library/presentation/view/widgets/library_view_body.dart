@@ -58,7 +58,10 @@ class _LibraryViewBodyState extends State<LibraryViewBody> {
                         "Favorite Books",
                         style: Styles.text18,
                       ),
-                     const  Text('Swipe down to refresh.'),
+                      Text(
+                        'Swipe down to refresh.',
+                        style: Styles.text16,
+                      ),
                       const Divider(
                         thickness: 3,
                         color: Colors.grey,

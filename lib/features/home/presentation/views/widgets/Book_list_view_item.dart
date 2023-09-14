@@ -17,14 +17,15 @@ class BookListViewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
-        height: 210.h,
         child: Stack(
           children: [
             CustomBookImage(
                 aspectRatioHeight: 190.h,
                 bookAuthor: bookModel.volumeInfo.authors?[0] ?? '',
                 bookTitle: bookModel.volumeInfo.title ?? '',
-                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail.replaceAll('zoom=1', 'zoom=10') ?? ''),
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail
+                        .replaceAll('zoom=1', 'zoom=10') ??
+                    ''),
             BookRating(
                 rating: bookModel.volumeInfo.averageRating ?? 0,
                 count: bookModel.volumeInfo.ratingsCount ?? 0),
