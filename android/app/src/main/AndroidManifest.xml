@@ -8,7 +8,7 @@
   </intent>
 </queries>
     <application
-        android:label="ebook_app"
+        android:label="Bookish"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

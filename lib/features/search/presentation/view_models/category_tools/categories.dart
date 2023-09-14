@@ -1,17 +1,19 @@
+import 'package:ebook_app/core/utils/assets.dart';
+
 import 'Categories_model.dart';
 
 class Categories {
   List<CategoriesModel> CategoriesList = [
     CategoriesModel(
-        imageAsset: 'assets/images/fiction.png', category: 'fiction'),
+        imageAsset: AssetsData.fiction, category: 'fiction'),
     CategoriesModel(
-        imageAsset: 'assets/images/fantasy.png', category: 'fantasy'),
+        imageAsset: AssetsData.fantasy, category: 'fantasy'),
     CategoriesModel(
-        imageAsset: 'assets/images/romance.png', category: 'romance'),
+        imageAsset: AssetsData.romance, category: 'romance'),
     CategoriesModel(
-        imageAsset: 'assets/images/science.png', category: 'science'),
+        imageAsset: AssetsData.science, category: 'science'),
     CategoriesModel(
-        imageAsset: 'assets/images/history.png', category: 'history'),
-    CategoriesModel(imageAsset: 'assets/images/action.png', category: 'action'),
+        imageAsset: AssetsData.history, category: 'history'),
+    CategoriesModel(imageAsset: AssetsData.action, category: 'action'),
   ];
 }

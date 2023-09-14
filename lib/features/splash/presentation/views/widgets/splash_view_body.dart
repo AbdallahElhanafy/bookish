@@ -41,6 +41,10 @@ class _SplashViewbodyState extends State<SplashViewbody>
         const SizedBox(
           height: 4,
         ),
+        SizedBox(
+          height: 60.h,
+          child: Image.asset(AssetsData.title),
+        )
         //   SlidingText(slidingAnimation: slidingAnimation),
       ],
     );

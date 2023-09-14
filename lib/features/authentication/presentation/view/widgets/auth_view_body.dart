@@ -1,5 +1,6 @@
 import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/Text_field.dart';
+import 'package:ebook_app/core/utils/assets.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/core/widgets/custom_button.dart';
 import 'package:ebook_app/features/authentication/presentation/view_models/authentication_cubit/authentication_cubit.dart';
@@ -60,8 +61,9 @@ class _AuthViewBodyState extends State<AuthViewBody> {
               height: 30.h,
             ),
             SizedBox(
-                width: double.infinity,
-                child: Image.asset('assets/images/logo_white.png')),
+              width: double.infinity,
+              child: Image.asset(AssetsData.logoWhite),
+            ),
             SizedBox(
               height: 30.h,
             ),

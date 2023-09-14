@@ -1,4 +1,4 @@
-package com.example.ebook_app
+package com.abdallahElhanafy.bookish
 
 import io.flutter.embedding.android.FlutterActivity
 

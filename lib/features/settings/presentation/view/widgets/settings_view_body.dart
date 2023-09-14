@@ -1,4 +1,5 @@
 import 'package:ebook_app/constants.dart';
+import 'package:ebook_app/core/utils/assets.dart';
 import 'package:ebook_app/core/utils/styles.dart';
 import 'package:ebook_app/features/authentication/presentation/view_models/authentication_cubit/authentication_cubit.dart';
 import 'package:flutter/material.dart';
@@ -75,8 +76,9 @@ class SettingsViewBody extends StatelessWidget {
             height: 50.h,
           ),
           SizedBox(
-              width: double.infinity,
-              child: Lottie.asset('assets/images/settings.json'))
+            width: double.infinity,
+            child: Lottie.asset(AssetsData.settings),
+          )
         ],
       ),
     );
