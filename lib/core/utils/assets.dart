@@ -1,6 +1,7 @@
 class AssetsData {
   static const logoWhite = 'assets/images/logo_white.png';
   static const logoPurple = 'assets/images/logo_purple.png';
+  static const homeImg= 'assets/images/home.png';
   static const title = 'assets/images/title.png';
   static const action = 'assets/images/action.png';
   static const science = 'assets/images/science.png';
