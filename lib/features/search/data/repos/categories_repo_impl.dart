@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:ebook_app/core/errors/failures.dart';
 import 'package:ebook_app/core/utils/api_service.dart';
-import 'package:ebook_app/features/categories/data/repos/categories_repo.dart';
+import 'package:ebook_app/features/search/data/repos/categories_repo.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 
 class categoriesRepoImpl implements CategoriesRepo {

@@ -8,6 +8,7 @@ import 'package:ebook_app/features/home/presentation/views/book_details_view.dar
 import 'package:ebook_app/features/home/presentation/views/home_view.dart';
 import 'package:ebook_app/features/library/presentation/view/library_view.dart';
 import 'package:ebook_app/features/search/presentation/view/search_view.dart';
+import 'package:ebook_app/features/settings/presentation/view/settings_view.dart';
 import 'package:ebook_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,7 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter {
   static const kAuthView = '/AuthView';
   static const kLibraryView = '/libraryView';
+    static const kSettingsView = '/settingsView';
   static const kHomeView = '/homeView';
   static const kNavigation = '/navView';
   static const kSearchView = '/seachView';
@@ -36,6 +38,10 @@ abstract class AppRouter {
       GoRoute(
         path: kNavigation,
         builder: (context, state) => const Navigation(),
+      ),
+       GoRoute(
+        path: kSettingsView,
+        builder: (context, state) => const SettingsView(),
       ),
       GoRoute(
         path: kBookDetailsView,

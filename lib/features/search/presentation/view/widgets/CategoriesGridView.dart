@@ -1,5 +1,5 @@
-import 'package:ebook_app/features/categories/presentation/view/widgets/CategoryItem.dart';
-import 'package:ebook_app/features/categories/presentation/view_models/category_tools/categories.dart';
+import 'package:ebook_app/features/search/presentation/view/widgets/CategoryItem.dart';
+import 'package:ebook_app/features/search/presentation/view_models/category_tools/categories.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesGridView extends StatelessWidget {

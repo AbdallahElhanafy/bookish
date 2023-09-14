@@ -26,6 +26,7 @@ dependencies:
   html: ^0.15.4
   image: ^4.0.17
   intl: ^0.18.1
+  lottie: ^2.6.0
   page_transition: ^2.0.9
   palette_generator: ^0.3.3+3
   skeletonizer: ^0.7.0

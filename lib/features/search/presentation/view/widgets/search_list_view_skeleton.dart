@@ -109,10 +109,10 @@ class SearchListViewSkeleton extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.r),
                           color: Colors.grey[300],
                         ),
-                        child: BookImg(
+                        child: const BookImg(
                             aspectRatioHeight: 190,
                             imageUrl:
-                                'https://template.canva.com/EADaopxBna4/1/0/251w-ujD6UPGa9hw.jpg'),
+                                ''),
                       ),
                     ),
                   ),

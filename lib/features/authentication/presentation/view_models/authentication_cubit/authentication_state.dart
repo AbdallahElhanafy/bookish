@@ -22,4 +22,9 @@ class registerFailure extends AuthenticationState {
   registerFailure({required this.errMessage});
 
 }
+class logoutSuccess extends AuthenticationState {}
+class logoutFailure extends AuthenticationState {
+   final String errMessage;
+  logoutFailure({required this.errMessage});
+}
 

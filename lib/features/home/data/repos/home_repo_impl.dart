@@ -10,7 +10,6 @@ class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
   HomeRepoImpl(this.apiService);
-  @override
   List<String> RandomCategories = [
     'fiction',
     'travel',
@@ -59,7 +58,6 @@ class HomeRepoImpl implements HomeRepo {
       List<NewBookModel> books = [];
 
       for (var item in data['items']) {
-              final bookModel = NewBookModel.fromJson(item);
 
         books.add(NewBookModel.fromJson(item));
       }

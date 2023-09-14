@@ -1,11 +1,7 @@
-import 'package:ebook_app/constants.dart';
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/styles.dart';
-import 'package:ebook_app/core/widgets/custom_button.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
-import 'package:ebook_app/features/home/presentation/views/book_details_view.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/bookImg.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/book_rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

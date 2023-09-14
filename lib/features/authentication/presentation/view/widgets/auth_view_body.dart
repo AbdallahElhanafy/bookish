@@ -109,7 +109,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
             SizedBox(
               width: double.infinity,
               child: CustomButton(
-                backgroundColor: Color(0xff9c54d5),
+                backgroundColor: const Color(0xff9c54d5),
                 text: "Create an account",
                 textColor: kPrimaryColor,
                 onPressed: () {

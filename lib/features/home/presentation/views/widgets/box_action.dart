@@ -5,7 +5,6 @@ import 'package:ebook_app/core/widgets/custom_button.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/view_models/book_status/book_status_cubit.dart';
 import 'package:ebook_app/features/home/presentation/view_models/firebase_data/firebase_data_cubit.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/book_status_action.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_status_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,7 +63,7 @@ class _BooksActionState extends State<BooksAction> {
                 .r,
           ),
         ),
-        VerticalDivider(
+    const    VerticalDivider(
           width: 3,
         ),
         NewBookStatusWidget(),

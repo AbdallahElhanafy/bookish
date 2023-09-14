@@ -1,14 +1,10 @@
-import 'package:ebook_app/features/categories/presentation/view/widgets/CategoriesGridView.dart';
-import 'package:ebook_app/features/categories/presentation/view_models/category_tools/categories.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/bookImg.dart';
-import 'package:ebook_app/features/search/presentation/view/widgets/book_search_item.dart';
+import 'package:ebook_app/features/search/presentation/view/widgets/CategoriesGridView.dart';
+import 'package:ebook_app/features/search/presentation/view_models/category_tools/categories.dart';
 import 'package:ebook_app/features/search/presentation/view/widgets/book_search_list_view.dart';
 import 'package:ebook_app/features/search/presentation/view/widgets/search_list_view_skeleton.dart';
-import 'package:ebook_app/features/search/presentation/view_models/cubit/search_cubit.dart';
+import 'package:ebook_app/features/search/presentation/view_models/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 class SearchResultListView extends StatelessWidget {
   SearchResultListView({super.key});
