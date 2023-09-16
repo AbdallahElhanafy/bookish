@@ -29,26 +29,30 @@ class _NavigationState extends State<Navigation> {
     const SettingsView(),
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return navigationBody();
   }
 
   Widget navigationBody() {
-    return Scaffold(
-      // extendBody: true,
-      body: pages[_currentIndex],
-      bottomNavigationBar: CustomNavBar(
-        icons: const [
-          FontAwesomeIcons.house,
-          FontAwesomeIcons.solidHeart,
-          FontAwesomeIcons.magnifyingGlass,
-          FontAwesomeIcons.gear
-        ],
-        selectedIndex: _currentIndex,
-        onTapIcon: changePage,
-        selectedColor: Colors.black,
-        unSelectedColor: kSecondaryColor,
+    return  PopScope(
+     canPop: false,
+      child: Scaffold(
+        // extendBody: true,
+        body: pages[_currentIndex],
+        bottomNavigationBar: CustomNavBar(
+          icons: const [
+            FontAwesomeIcons.house,
+            FontAwesomeIcons.solidHeart,
+            FontAwesomeIcons.magnifyingGlass,
+            FontAwesomeIcons.gear
+          ],
+          selectedIndex: _currentIndex,
+          onTapIcon: changePage,
+          selectedColor: Colors.black,
+          unSelectedColor: kSecondaryColor,
+        ),
       ),
     );
   }

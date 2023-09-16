@@ -136,7 +136,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.55,
             child: Padding(
               padding: const EdgeInsets.all(20.0).r,
               child: Column(
@@ -151,7 +151,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                     ),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
@@ -162,7 +162,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                         obscureText: false),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
@@ -173,7 +173,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                         obscureText: false),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
@@ -184,7 +184,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                         obscureText: true),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
@@ -202,6 +202,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                       },
                     ),
                   ),
+                  const Expanded(child: SizedBox()),
                 ],
               ),
             ),
