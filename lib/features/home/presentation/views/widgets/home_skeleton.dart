@@ -1,3 +1,4 @@
+import 'package:ebook_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -21,7 +22,7 @@ class HomeSkeleton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0).r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-
+        
                 children: [
                   SizedBox(
                     height: aspectHeight,
@@ -32,8 +33,8 @@ class HomeSkeleton extends StatelessWidget {
                       ),
                     ),
                   ),
-                const  Text('assets/images/book'),
-                const  Text('assets/images'),
+              Flexible(child:   Text('assets/images/book', style: Styles.text14,),),
+              Flexible(child: Text('assets/images', style: Styles.text13,),),
                 ],
               ),
             );

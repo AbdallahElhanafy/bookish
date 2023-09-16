@@ -32,16 +32,14 @@ class _AuthViewBodyState extends State<AuthViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/auth.gif'),
-            fit: BoxFit.cover,
-          ),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/auth.gif'),
+          fit: BoxFit.cover,
         ),
       ),
-      Padding(
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25.0).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -118,7 +116,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
           ],
         ),
       ),
-    ]);
+    );
   }
 
   Future<dynamic> showSignUp(BuildContext context) {
@@ -139,71 +137,72 @@ class _AuthViewBodyState extends State<AuthViewBody> {
             height: MediaQuery.of(context).size.height * 0.55,
             child: Padding(
               padding: const EdgeInsets.all(20.0).r,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Please Enter your credentials',
-                    style: Styles.text18.copyWith(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Please Enter your credentials',
+                      style: Styles.text18.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    child: MyTextField(
-                        keyboard: TextInputType.name,
-                        controller: nameController,
-                        hintText: "Full Name",
-                        obscureText: false),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    child: MyTextField(
-                        keyboard: TextInputType.emailAddress,
-                        controller: emailController,
-                        hintText: "Email",
-                        obscureText: false),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    child: MyTextField(
-                        keyboard: TextInputType.name,
-                        controller: passwordController,
-                        hintText: "Password",
-                        obscureText: true),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    width: double.infinity,
-                    child: CustomButton(
-                      backgroundColor: kSecondaryColor,
-                      text: "Create Account",
-                      textColor: kPrimaryColor,
-                      onPressed: () {
-                        BlocProvider.of<AuthenticationCubit>(context)
-                            .registerUser(
-                                name: nameController.text.trim(),
-                                email: emailController.text.trim(),
-                                password: passwordController.text.trim());
-                      },
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
                     ),
-                  ),
-                  const Expanded(child: SizedBox()),
-                ],
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      child: MyTextField(
+                          keyboard: TextInputType.name,
+                          controller: nameController,
+                          hintText: "Full Name",
+                          obscureText: false),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      child: MyTextField(
+                          keyboard: TextInputType.emailAddress,
+                          controller: emailController,
+                          hintText: "Email",
+                          obscureText: false),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      child: MyTextField(
+                          keyboard: TextInputType.name,
+                          controller: passwordController,
+                          hintText: "Password",
+                          obscureText: true),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      width: double.infinity,
+                      child: CustomButton(
+                        backgroundColor: kSecondaryColor,
+                        text: "Create Account",
+                        textColor: kPrimaryColor,
+                        onPressed: () {
+                          BlocProvider.of<AuthenticationCubit>(context)
+                              .registerUser(
+                                  name: nameController.text.trim(),
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim());
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -230,57 +229,60 @@ class _AuthViewBodyState extends State<AuthViewBody> {
             height: MediaQuery.of(context).size.height * 0.5,
             child: Padding(
               padding: const EdgeInsets.all(20.0).r,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Please Enter your credentials',
-                    style: Styles.text18.copyWith(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Please Enter your credentials',
+                      style: Styles.text18.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    child: MyTextField(
-                        keyboard: TextInputType.emailAddress,
-                        controller: emailController,
-                        hintText: "Email",
-                        obscureText: false),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    child: MyTextField(
-                        keyboard: TextInputType.name,
-                        controller: passwordController,
-                        hintText: "Password",
-                        obscureText: true),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    width: double.infinity,
-                    child: CustomButton(
-                      backgroundColor: kSecondaryColor,
-                      text: "Login",
-                      textColor: kPrimaryColor,
-                      onPressed: () {
-                        BlocProvider.of<AuthenticationCubit>(context).loginUser(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim());
-                      },
+                    SizedBox(
+                      height: 30.h,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      child: MyTextField(
+                          keyboard: TextInputType.emailAddress,
+                          controller: emailController,
+                          hintText: "Email",
+                          obscureText: false),
+                    ),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      child: MyTextField(
+                          keyboard: TextInputType.name,
+                          controller: passwordController,
+                          hintText: "Password",
+                          obscureText: true),
+                    ),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      width: double.infinity,
+                      child: CustomButton(
+                        backgroundColor: kSecondaryColor,
+                        text: "Login",
+                        textColor: kPrimaryColor,
+                        onPressed: () {
+                          BlocProvider.of<AuthenticationCubit>(context)
+                              .loginUser(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim());
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -18,37 +18,35 @@ class FeaturedBooksListView extends StatelessWidget {
         if (state is FeaturedBooksSucess) {
           return SizedBox(
             height: 240.h,
-            child: Flexible(
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: state.books.length,
-                padding: EdgeInsets.zero,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: ((context, index) {
-                  return SizedBox(
-                    width: 130.h,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).push(AppRouter.kBookDetailsView,
-                              extra: state.books[index]);
-                        },
-                        child: CustomBookImage(
-                            aspectRatioHeight: 170.h,
-                            bookAuthor:
-                                state.books[index].volumeInfo.authors?[0] ?? '',
-                            bookTitle:
-                                state.books[index].volumeInfo.title ?? '',
-                            imageUrl: state.books[index].volumeInfo.imageLinks
-                                    ?.thumbnail
-                                    .replaceAll('zoom=1', 'zoom=10') ??
-                                ''),
-                      ),
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.books.length,
+              padding: EdgeInsets.zero,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: ((context, index) {
+                return SizedBox(
+                  width: 130.h,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                            extra: state.books[index]);
+                      },
+                      child: CustomBookImage(
+                          aspectRatioHeight: 170.h,
+                          bookAuthor:
+                              state.books[index].volumeInfo.authors?[0] ?? '',
+                          bookTitle:
+                              state.books[index].volumeInfo.title ?? '',
+                          imageUrl: state.books[index].volumeInfo.imageLinks
+                                  ?.thumbnail
+                                  .replaceAll('zoom=1', 'zoom=10') ??
+                              ''),
                     ),
-                  );
-                }),
-              ),
+                  ),
+                );
+              }),
             ),
           );
         } else if (state is FeaturedBooksFailure) {
@@ -56,7 +54,7 @@ class FeaturedBooksListView extends StatelessWidget {
         } else {
           return HomeSkeleton(
             height: 240.h,
-            aspectHeight: 200,
+            aspectHeight: 200.h,
           );
         }
       },

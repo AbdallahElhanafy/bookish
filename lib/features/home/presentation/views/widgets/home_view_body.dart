@@ -25,51 +25,56 @@ class HomeViewBody extends StatelessWidget {
                 SizedBox(
                   height: 30.h,
                 ),
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * 0.15,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xff8E2DE2), Color(0xff4A00E0)],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xff8E2DE2), Color(0xff4A00E0)],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(15).r,
                     ),
-                    borderRadius: BorderRadius.circular(15).r,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 8.0, top: 8, bottom: 8)
-                                .r,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Welcome to ',
-                              style: Styles.text18.copyWith(
-                                  color: kPrimaryColor,
-                                  fontSize: 23.sp,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            Text(
-                              'Bookish!',
-                              style: Styles.text30.copyWith(
-                                  color: kPrimaryColor,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                                  left: 8.0, top: 8, bottom: 8)
+                              .r,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  'Welcome to ',
+                                  style: Styles.text18.copyWith(
+                                      color: kPrimaryColor,
+                                      fontSize: 23.sp,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ),
+                              Flexible(
+                                child: Text(
+                                  'Bookish!',
+                                  style: Styles.text30.copyWith(
+                                      color: kPrimaryColor,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 12.0).r,
-                        child: SizedBox(
-                            width: 150.w,
-                            child: Image.asset(AssetsData.homeImg)),
-                      ),
-                    ],
+                        Flexible(
+                            child: Padding(
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0).r,
+                          child: Image.asset(AssetsData.homeImg),
+                        )),
+                      ],
+                    ),
                   ),
                 ),
                 const CustomAppBar(),
