@@ -26,56 +26,45 @@ class SettingsViewBody extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            height: 40.h,
-            color: kSecondaryColor.withOpacity(0.1),
+          GestureDetector(
+            onTap: () {
+              BlocProvider.of<AuthenticationCubit>(context).signOut();
+            },
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 10.w,
-                ),
                 Text(
                   "Sign Out",
                   style: Styles.text18.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
-                IconButton(
-                  onPressed: () {
-                    BlocProvider.of<AuthenticationCubit>(context).signOut();
-                  },
-                  icon: Icon(
-                    FontAwesomeIcons.arrowRight,
-                    color: kSecondaryColor,
-                    size: 25.r,
-                  ),
+                Icon(
+                  FontAwesomeIcons.arrowRight,
+                  color: kSecondaryColor,
+                  size: 25.r,
                 ),
               ],
             ),
           ),
+          Divider(thickness: 3.r, color: Colors.grey[300]),
           SizedBox(
-            height: 20.w,
+            height: 30.w,
           ),
-          Container(
-            height: 40.h,
-            color: kSecondaryColor.withOpacity(0.1),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 10.w,
-                ),
-                Text(
-                  "Dark Mode",
-                  style: Styles.text18.copyWith(fontWeight: FontWeight.bold),
-                ),
-                const Spacer(),
-                Text(
-                  'Coming Soon ',
-                  style: Styles.text16,
-                ),
-              ],
-            ),
+          Row(
+            children: [
+              Text(
+                "Dark Mode",
+                style: Styles.text18.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const Spacer(),
+              Text(
+                'Coming Soon ',
+                style: Styles.text16,
+              ),
+            ],
           ),
-          Spacer(),
+          Divider(thickness: 3.r, color: Colors.grey[300]),
+       const   Spacer(),
           SizedBox(
             width: double.infinity,
             child: Image.asset(AssetsData.homeImg),

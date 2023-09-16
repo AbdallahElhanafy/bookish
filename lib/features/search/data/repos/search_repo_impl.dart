@@ -14,20 +14,20 @@ class searchRepoImpl implements SearchRepo {
   Future<Either<Failure, List<NewBookModel>>> searchBooks(
       {required String query}) async {
     try {
-      var data =
-          await apiService.get(endPoint: 'volumes?q=$query&maxResults=20');
+      var data = await apiService.get(
+          endPoint: 'volumes?q=$query&maxResults=20&langRestrict=en');
 
       List<NewBookModel> books = [];
 
       for (var item in data['items']) {
         try {
-          books.add(
-            NewBookModel.fromJson(item),
-          );
+          final NewBookModel book = NewBookModel.fromJson(item);
+          if (book.saleInfo?.saleability == 'FOR_SALE' ||
+              book.saleInfo?.saleability == 'FREE') {
+            books.add(book);
+          }
         } catch (e) {
-          books.add(
-            NewBookModel.fromJson(item),
-          );
+          // Handle error
         }
       }
       return Right(books);

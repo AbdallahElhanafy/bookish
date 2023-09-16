@@ -21,10 +21,11 @@ class _BookDetailsViewState extends State<BookDetailsView> {
     super.initState();
 
     BlocProvider.of<SimilarBooksCubit>(context).getImagePalette(
-        CachedNetworkImageProvider(
-            widget.bookModel.volumeInfo.imageLinks!.thumbnail));
-    BlocProvider.of<FirebaseDataCubit>(context).isBookInLibrary(
-        widget.bookModel.id!);
+        CachedNetworkImageProvider(widget
+                .bookModel.volumeInfo.imageLinks?.thumbnail ??
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png'));
+    BlocProvider.of<FirebaseDataCubit>(context)
+        .isBookInLibrary(widget.bookModel.id!);
 
     BlocProvider.of<FirebaseDataCubit>(context).getLibraryDataFromDataBase();
   }
