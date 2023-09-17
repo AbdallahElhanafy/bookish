@@ -9,10 +9,11 @@ class LibraryCubit extends Cubit<LibraryState> {
   LibraryCubit(this.libraryRepo, this.isbn) : super(LibraryInitial());
 
   final LibraryRepo libraryRepo;
-final List<String> isbn;
+  final List<String> isbn;
   Future<void> fetchLibraryBooks({required List<String> isbn}) async {
+    emit(LibraryInitial());
     emit(LibraryLoading());
-   var result = await libraryRepo.fetchLibraryBooks(isbn: isbn);
+    var result = await libraryRepo.fetchLibraryBooks(isbn: isbn);
 
     result.fold(
       (faliure) {

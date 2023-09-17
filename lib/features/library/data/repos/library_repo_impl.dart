@@ -14,24 +14,21 @@ class LibraryRepoImpl implements LibraryRepo {
   var data;
   @override
   Future<Either<Failure, List<NewBookModel>>> fetchLibraryBooks(
-      {required List <String> isbn}) async {
-
-        
+      {required List<String> isbn}) async {
     try {
-       books.clear();
-            for(String isbn in isbn){
-      var data = await apiService.get(endPoint: 'volumes/$isbn?');
-     
+      books.clear();
+      for (String isbn in isbn) {
+        var data = await apiService.get(endPoint: 'volumes/$isbn?');
+
         try {
-          books.add(
-            NewBookModel.fromJson(data),
-          );
+          final book = NewBookModel.fromJson(data);
+          if (!books.any((b) => b.id == book.id)) {
+            books.add(book);
+          }
         } catch (e) {
-          books.add(
-            NewBookModel.fromJson(data),
-          );
+          // Handle error
         }
-            }
+      }
 
       return Right(books);
     } on DioException catch (e) {
@@ -48,6 +45,3 @@ class LibraryRepoImpl implements LibraryRepo {
     }
   }
 }
-
-
- 

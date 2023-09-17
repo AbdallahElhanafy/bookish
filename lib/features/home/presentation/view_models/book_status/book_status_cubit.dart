@@ -1,29 +1,37 @@
 import 'package:bloc/bloc.dart';
+import 'package:ebook_app/core/shared.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
-import 'package:ebook_app/core/utils/functions/firebase_data.dart';
 import 'package:equatable/equatable.dart';
-
 
 part 'book_status_state.dart';
 
 class BookStatusCubit extends Cubit<BookStatusState> {
-  final FirebaseData _firebaseData;
+  final SharedPrefs _sharedPrefs;
 
-  BookStatusCubit(this._firebaseData) : super(BookStatusInitial());
+  BookStatusCubit(this._sharedPrefs) : super(BookStatusInitial());
 
   Future<void> checkIfBookIsInLibrary(NewBookModel bookModel) async {
     try {
       final String isbn = bookModel.id!;
-      final bool result = await _firebaseData.isBookInLibrary(isbn);
-      emit(BookStatusLoaded(result));
+      final List<String> favoriteBooks = await SharedPrefs.getFavoriteBooks();
+      final bool result = favoriteBooks.contains(isbn);
+      emit(
+        BookStatusLoaded(result),
+      );
     } catch (e) {
-      emit(BookStatusError());
+      emit(
+        BookStatusError(),
+      );
     }
   }
 
   Future<void> addBookToLibrary(String isbn) async {
     try {
-      await _firebaseData.addBookToLibrary(bookDocumentISBN: isbn);
+      final List<String> favoriteBooks = await SharedPrefs.getFavoriteBooks();
+      if (!favoriteBooks.contains(isbn)) {
+        favoriteBooks.add(isbn);
+        await SharedPrefs.addBookToFavorites(isbn);
+      }
       emit(const BookStatusLoaded(true));
     } catch (e) {
       emit(BookStatusError());
@@ -32,7 +40,11 @@ class BookStatusCubit extends Cubit<BookStatusState> {
 
   Future<void> removeBookFromLibrary(String isbn) async {
     try {
-      await _firebaseData.removeBookFromLibrary(bookDocumentISBN: isbn);
+      final List<String> favoriteBooks = await SharedPrefs.getFavoriteBooks();
+      if (favoriteBooks.contains(isbn)) {
+        favoriteBooks.remove(isbn);
+        await SharedPrefs.deleteBookFromFavorites(isbn);
+      }
       emit(const BookStatusLoaded(false));
     } catch (e) {
       emit(BookStatusError());

@@ -6,6 +6,8 @@ import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.
 import 'package:ebook_app/features/home/presentation/view_models/book_status/book_status_cubit.dart';
 import 'package:ebook_app/features/home/presentation/view_models/firebase_data/firebase_data_cubit.dart';
 import 'package:ebook_app/features/home/presentation/views/widgets/book_status_button.dart';
+import 'package:ebook_app/features/library/presentation/view_models/cubit/shared_prefs_cubit.dart';
+import 'package:ebook_app/features/library/presentation/view_models/library_cubit/library_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,14 +47,11 @@ class _BooksActionState extends State<BooksAction> {
           width: MediaQuery.of(context).size.width * 0.75,
           child: CustomButton(
             onPressed: () async {
-              if (widget.bookModel.saleInfo?.saleability == 'NOT_FOR_SALE'){
-
-              }
-              else {
+              if (widget.bookModel.saleInfo?.saleability == 'NOT_FOR_SALE') {
+              } else {
                 launchCustomUrl(
-                  context, widget.bookModel.accessInfo!.webReaderLink);
+                    context, widget.bookModel.accessInfo!.webReaderLink);
               }
-              
             },
             text: getText(widget.bookModel),
             textColor: Colors.white,
@@ -63,7 +62,7 @@ class _BooksActionState extends State<BooksAction> {
                 .r,
           ),
         ),
-    const    VerticalDivider(
+        const VerticalDivider(
           width: 3,
         ),
         NewBookStatusWidget(),
@@ -82,12 +81,12 @@ class _BooksActionState extends State<BooksAction> {
               ? Expanded(
                   child: BookStatusButton(
                     widget: widget,
-                    icon: FontAwesomeIcons.solidHeart ,
-                    onPressed: () async { 
+                    icon: FontAwesomeIcons.solidHeart,
+                    onPressed: () async {
                       BlocProvider.of<BookStatusCubit>(context)
                           .removeBookFromLibrary(widget.bookModel.id!);
-                      BlocProvider.of<FirebaseDataCubit>(context)
-                          .getLibraryDataFromDataBase();
+                      BlocProvider.of<SharedPrefsCubit>(context)
+                          .getFavoriteBooks();
                     },
                   ),
                 )
@@ -96,9 +95,8 @@ class _BooksActionState extends State<BooksAction> {
                     onPressed: () async {
                       BlocProvider.of<BookStatusCubit>(context)
                           .addBookToLibrary(widget.bookModel.id!);
-
-                      BlocProvider.of<FirebaseDataCubit>(context)
-                          .getLibraryDataFromDataBase();
+                      BlocProvider.of<SharedPrefsCubit>(context)
+                          .getFavoriteBooks();
                     },
                     icon: FontAwesomeIcons.heart,
                     widget: widget,

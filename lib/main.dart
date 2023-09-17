@@ -1,4 +1,5 @@
 import 'package:ebook_app/constants.dart';
+import 'package:ebook_app/core/shared.dart';
 import 'package:ebook_app/core/utils/app_router.dart';
 import 'package:ebook_app/core/utils/service_locator.dart';
 import 'package:ebook_app/features/authentication/presentation/view_models/authentication_cubit/authentication_cubit.dart';
@@ -6,22 +7,25 @@ import 'package:ebook_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:ebook_app/features/home/presentation/view_models/book_status/book_status_cubit.dart';
 import 'package:ebook_app/core/utils/functions/firebase_data.dart';
 import 'package:ebook_app/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit.dart';
-import 'package:ebook_app/features/home/presentation/view_models/firebase_data/firebase_data_cubit.dart';
 import 'package:ebook_app/features/home/presentation/view_models/newest_books/newest_books_cubit.dart';
-import 'package:ebook_app/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:ebook_app/features/library/data/repos/library_repo_impl.dart';
+import 'package:ebook_app/features/library/presentation/view_models/cubit/shared_prefs_cubit.dart';
+import 'package:ebook_app/features/library/presentation/view_models/library_cubit/library_cubit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-  setupServiceLocator();
-  runApp(const BooksApp());
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+  WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator(
+    await SharedPreferences.getInstance(),
+  
   );
+  runApp(const BooksApp());
 }
 
 class BooksApp extends StatelessWidget {
@@ -33,7 +37,7 @@ class BooksApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-       DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitDown,
     ]);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
@@ -52,14 +56,20 @@ class BooksApp extends StatelessWidget {
               )..fetchNewestBooks(),
             ),
             BlocProvider(
-              create: (context) => AuthenticationCubit(),
-            ),
-            BlocProvider(
-              create: (context) => FirebaseDataCubit(),
+              create: (context) => LibraryCubit(
+                getIt.get<LibraryRepoImpl>(),
+               []
+              ),
             ),
             BlocProvider(
               create: (context) => BookStatusCubit(
-                FirebaseData(),
+                getIt.get<SharedPrefs>(),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => SharedPrefsCubit(
+                sharedPreferences: getIt.get<SharedPreferences>(),
+                libraryCubit: BlocProvider.of<LibraryCubit>(context),
               ),
             ),
           ],

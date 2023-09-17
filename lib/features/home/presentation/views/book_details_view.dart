@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ebook_app/core/shared.dart';
 import 'package:ebook_app/features/home/data/models/book_model_v2/book_model_v2.dart';
 import 'package:ebook_app/features/home/presentation/view_models/firebase_data/firebase_data_cubit.dart';
 import 'package:ebook_app/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
@@ -24,10 +25,8 @@ class _BookDetailsViewState extends State<BookDetailsView> {
         CachedNetworkImageProvider(widget
                 .bookModel.volumeInfo.imageLinks?.thumbnail ??
             'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png'));
-    BlocProvider.of<FirebaseDataCubit>(context)
-        .isBookInLibrary(widget.bookModel.id!);
 
-    BlocProvider.of<FirebaseDataCubit>(context).getLibraryDataFromDataBase();
+    SharedPrefs.getFavoriteBooks();
   }
 
   @override
