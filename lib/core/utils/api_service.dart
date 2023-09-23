@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 
 class ApiService {
   final _baseUrl = 'https://www.googleapis.com/books/v1/';
-  var apikey = '&key=AIzaSyAymbZgmUEwwRN-EPtIzxrvuZsB8o5Wz4U';
   final imgUrl = '?fields=id,volumeInfo(title,imageLinks)';
   final volume = 'https://www.googleapis.com/books/v1/volumes/';
   final Dio _dio;

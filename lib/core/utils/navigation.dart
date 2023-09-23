@@ -22,6 +22,10 @@ class _NavigationState extends State<Navigation> {
     });
   }
 
+    Future<bool> _onWillPop() async {
+    return false; //<-- SEE HERE
+  }
+
   final pages = [
     const HomeView(),
     const LibraryView(),
@@ -36,8 +40,8 @@ class _NavigationState extends State<Navigation> {
   }
 
   Widget navigationBody() {
-    return  PopScope(
-     canPop: false,
+    return  WillPopScope(
+    onWillPop: _onWillPop,
       child: Scaffold(
         // extendBody: true,
         body: pages[_currentIndex],
