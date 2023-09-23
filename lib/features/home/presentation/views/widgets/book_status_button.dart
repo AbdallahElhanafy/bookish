@@ -1,5 +1,5 @@
 import 'package:ebook_app/constants.dart';
-import 'package:ebook_app/features/home/presentation/views/widgets/box_action.dart';
+import 'package:ebook_app/features/home/presentation/views/widgets/books_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
